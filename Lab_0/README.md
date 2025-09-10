@@ -3,4 +3,5 @@
 * try some simple syntax (window size and background color)
 
 result screen shot
+
 ![alt text](image.png =50%x)
