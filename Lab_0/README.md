@@ -5,3 +5,4 @@
 result screen shot
 
 ![alt text](image.png)
+<img src="image.png" width="250" />
