@@ -4,4 +4,4 @@
 
 result screen shot
 
-![image](https://github.com/mag-galaxy/3D-Computer-Graphics/blob/main/Lab_0/image.png =50%x)
+![alt text](image.png)
