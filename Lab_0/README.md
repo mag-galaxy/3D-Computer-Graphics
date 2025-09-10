@@ -4,4 +4,4 @@
 
 result screen shot
 
-![alt text](image.png=50%x)
+![alt text](image.png = 50%x)
