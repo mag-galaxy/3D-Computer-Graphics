@@ -3,6 +3,4 @@
 * try some simple syntax (window size and background color)
 
 result screen shot
-
-![alt text](image.png)
-<img src="image.png" width="250" />
+<img src="image.png" width="500" />
