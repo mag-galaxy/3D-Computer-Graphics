@@ -17,3 +17,4 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 * https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorithm/
 * https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08
 * https://mmrndev.medium.com/understanding-b%C3%A9zier-curves-f6eaa0fa6c7d
+* https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/
