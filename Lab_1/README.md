@@ -3,10 +3,10 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 
 ## functions completed
 - [X] line algorithm
-- [ ] circle algorithm
+- [X] circle algorithm
 - [ ] ellipse algorithm
 - [ ] curve algorithm
-- [ ] eraser
+- [X] eraser
 
 ## how to do
 #### line algorithm
