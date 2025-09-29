@@ -8,8 +8,12 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 - [X] curve algorithm
 - [X] eraser
 
-## how to do
+## how to implement?
 #### line algorithm
+#### circle algorithm
+#### ellipse algorithm
+#### curve algorithm
+#### eraser
 
 ## used LLM as assistance
 
