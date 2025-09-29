@@ -5,7 +5,7 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 - [X] line algorithm
 - [X] circle algorithm
 - [ ] ellipse algorithm
-- [ ] curve algorithm
+- [X] curve algorithm
 - [X] eraser
 
 ## how to do
@@ -16,4 +16,5 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 ## references
 * https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorithm/
 * https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08
+* https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/
 * https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/
