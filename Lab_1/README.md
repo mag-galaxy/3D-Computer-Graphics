@@ -4,7 +4,7 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 ## functions completed
 - [X] line algorithm
 - [X] circle algorithm
-- [ ] ellipse algorithm
+- [X] ellipse algorithm
 - [X] curve algorithm
 - [X] eraser
 
