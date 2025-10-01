@@ -10,25 +10,30 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 
 ## how to implement?
 #### line algorithm
-take reference from: <https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorithm/>
+reference: <https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorithm/>
+
+Using "mid-point line algorithm", `sx` and `sy` represent direction (+ or -) of x and y of the given line. There are two cases. In the first one, when `dy <= dx`, x is the driving axis. Update x every step, using mid-point to determine whether we should update y or not. On the other hand, when `dx <= dy`, y is the driving axis. Update y every step, using mid-point to determine whether we should update x or not.
 
 #### circle algorithm
-take reference from: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/> and <https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08>
-symmetry
+reference: <https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08>
+
+Using "mid-point circle algorithm". Given center point `(x, y)` and radius `r`, starting at the top of the circle, which is  (x, y+r). Only need to calculate pixels form `pi/4` ~ `pi/2` (i.e. `45°` ~ `90°`). At each iteration, ploting 8 points every step based on symmetry (x-axis, y-axis, line with slope 1, line with slope -1).
 
 #### ellipse algorithm
-take reference from: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/>
+reference: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/>
 symmetry
 
-#### curve algorithm
-take reference from: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/>
+#### Cubic Bezier Curve algorithm
+reference: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/>
 
-formula:
+follow formulae: 
+
+`x(u) = (1-u)^3 * x1 + 3 * u * (1-u)^2 * x2 + 3 * u^2 * (1-u) * x3 + u^3 * x4`
+
+`y(u) = (1-u)^3 * y1 + 3 * u * (1-u)^2 * y2 + 3 * u^2 * (1-u) * y3 + u^3 * y4`
 
 #### eraser
-use nested loop to draw every pixel in area of p1 and p2
+use nested loop to plot every pixel with color(250) in the area bounded by p1 and p2 (2 vectors)
 
 ## used LLM as assistance
-
-## references
-
+After reading the references websites and writing my own codes, if it still could not work, I would past my code to ChatGPT and explained problems that I encountered so far, asking it where I need to modify to make it right.
