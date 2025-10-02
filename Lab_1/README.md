@@ -21,7 +21,9 @@ Using "mid-point circle algorithm". Given center point `(x, y)` and radius `r`, 
 
 #### ellipse algorithm
 reference: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/>
-symmetry
+
+Using "mid-point ellipse algorithm". Given center point `(x, y)` and 2 axis `r1`, `r2`
+ploting 4 points every step based on symmetry (x-axis, y-axis).
 
 #### Cubic Bezier Curve algorithm
 reference: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/>
@@ -31,6 +33,8 @@ follow formulae:
 `x(u) = (1-u)^3 * x1 + 3 * u * (1-u)^2 * x2 + 3 * u^2 * (1-u) * x3 + u^3 * x4`
 
 `y(u) = (1-u)^3 * y1 + 3 * u * (1-u)^2 * y2 + 3 * u^2 * (1-u) * y3 + u^3 * y4`
+
+where x1~x4 and y1~y4 represent coordinates of given points.
 
 #### eraser
 use nested loop to plot every pixel with color(250) in the area bounded by p1 and p2 (2 vectors)
