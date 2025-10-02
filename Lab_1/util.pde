@@ -152,50 +152,6 @@ public void CGEllipse(float x, float y, float r1, float r2) {
         }
     }
     /*
-    // region 1
-    float d1 = r2*r2 - r1*r1*r2 + 0.25*r1*r1;
-    float dx = 2*r2*r2*X;
-    float dy = 2*r1*r1*Y;
-    while(dx < dy){
-        // draw 4 points based on symmetry
-        drawPoint(x+X, y+Y, color(0));
-        drawPoint(x-X, y+Y, color(0));
-        drawPoint(x+X, y-Y, color(0));
-        drawPoint(x-X, y-Y, color(0));
-        X += 1;
-        if(d1 < 0){
-            dx = dx + 2*r2*r2;
-            d1 = d1 + dx + r2*r2;
-        }
-        else{
-            Y -= 1;
-            dx = dx + (2*r2*r2);
-            dy = dy - (2*r1*r1);
-            d1 = d1 + dx - dy + r2*r2;
-        }
-    }
-    
-    // region 2
-    float d2 = ((r2*r2) * ((X + 0.5)*(X + 0.5))) + ((r1*r1) * ((Y - 1)*(Y - 1)))- (r1*r1*r2*r2);
-    while(Y >= 0){
-        // draw 4 points based on symmetry
-        drawPoint(x+X, y+Y, color(0));
-        drawPoint(x-X, y+Y, color(0));
-        drawPoint(x+X, y-Y, color(0));
-        drawPoint(x-X, y-Y, color(0));
-        Y -= 1;
-        if(d2 > 0){
-            dy = dy + 2*r1*r1;
-            d2 = d2 - dy + r1*r1;
-        }
-        else{
-            X += 1;
-            dx = dx + (2*r2*r2);
-            dy = dy - (2*r1*r1);
-            d2 = d2 + dx - dy + r1*r1;
-        }
-    }*/
-    /*
     stroke(0);
     noFill();
     ellipse(x,y,r1*2,r2*2);
@@ -212,13 +168,13 @@ public void CGCurve(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4) {
     // Otherwise, you will receive a score of 0 for this part.
     // Utilize the function drawPoint(x, y, color) to apply color to the pixel at
     // coordinates (x, y).
+    
     float xu = 0.0, yu = 0.0;
     for(float u = 0.0; u <= 1.0; u += 0.0001){
         xu = (1-u)*(1-u)*(1-u)*p1.x + 3*u*(1-u)*(1-u)*p2.x + 3*u*u*(1-u)*p3.x + u*u*u*p4.x;
         yu = (1-u)*(1-u)*(1-u)*p1.y + 3*u*(1-u)*(1-u)*p2.y + 3*u*u*(1-u)*p3.y + u*u*u*p4.y;
         drawPoint(xu, yu, color(0));
     }
-
     /*
     stroke(0);
     noFill();
@@ -238,6 +194,7 @@ public void CGEraser(Vector3 p1, Vector3 p2) {
     // You can use the mouse wheel to change the eraser range.
     // Utilize the function drawPoint(x, y, color) to apply color to the pixel at
     // coordinates (x, y).
+    
     float x1 = min(p1.x, p2.x);
     float y1 = min(p1.y, p2.y);
     float x2 = max(p1.x, p2.x);
