@@ -26,8 +26,6 @@ Using "mid-point ellipse algorithm". Given center point `(x, y)` and 2 axis `r1`
 
 <video src="video/ellipse.mp4" width="500" height="300" controls></video>
 
-[![ellipse demo](https://raw.githubusercontent.com/mag-galaxy/3D-Computer-Graphics/blob/main/Lab_1/video/ellipse.mp4)]
-
 #### Cubic Bezier Curve algorithm
 reference: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/>
 
@@ -38,8 +36,6 @@ follow formulae:
 `y(u) = (1-u)^3 * y1 + 3 * u * (1-u)^2 * y2 + 3 * u^2 * (1-u) * y3 + u^3 * y4`
 
 where x and y represent coordinates of given points.
-
-[![bezier curve demo](https://raw.githubusercontent.com/mag-galaxy/3D-Computer-Graphics/blob/main/Lab_1/video/curve.mp4)]
 
 #### eraser
 use nested loop to plot every pixel with color(250) in the area bounded by p1 and p2 (2 vectors)
