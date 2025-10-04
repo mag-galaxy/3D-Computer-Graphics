@@ -24,8 +24,6 @@ reference: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm
 
 Using "mid-point ellipse algorithm". Given center point `(x, y)` and 2 axis `r1`, `r2`. Separate curve of first quadrant into region 1 and 2 via tangent. When tangent < -1, choose `E` or `SE` to be next pixel according to mid-point decission parameter. When tangent > -1, choose `S` or `SE` to be next pixel according to mid-point decission parameter. Then plot 4 points every step based on symmetry (x-axis, y-axis).
 
-<video src="video/ellipse.mp4" width="500" height="300" controls></video>
-
 #### Cubic Bezier Curve algorithm
 reference: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/>
 
@@ -39,8 +37,6 @@ where x and y represent coordinates of given points.
 
 #### eraser
 use nested loop to plot every pixel with color(250) in the area bounded by p1 and p2 (2 vectors)
-
-[![eraser demo](https://raw.githubusercontent.com/mag-galaxy/3D-Computer-Graphics/blob/main/Lab_1/video/eraser.mp4)]
 
 ## used LLM as assistance
 After reading the references websites and writing my own codes, if it still could not work, I would past my code to ChatGPT and explained problems that I encountered so far, asking it where I need to modify to make it right.
