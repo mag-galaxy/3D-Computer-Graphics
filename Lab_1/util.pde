@@ -10,7 +10,7 @@ public void CGLine(float x1, float y1, float x2, float y2) {
     // point at (114, 514).
     
     // start pointA(x1, y1), end pointB(x2, y2)
-    float dx = abs(x2 - x1);
+    /*float dx = abs(x2 - x1);
     float dy = abs(y2 - y1);
     
     int sx = (x2 >= x1) ? 1 : -1;  // x of vector A->B is + or -
@@ -52,15 +52,44 @@ public void CGLine(float x1, float y1, float x2, float y2) {
             drawPoint(x, y, 0);
         }
     }
-    /*int m_new = 2 * (int(y2) -int(y1));
-    int slope_error_new = m_new - (int(x1) - int(x2));
-    for(int x = int(x1), y = int(y1); x <= x2; x++){
-        drawPoint(float(x), float(y), color(0));
-        if(slope_error_new >= 0){
-            y++;
-            slope_error_new -= 2 * (x2 - x1);
-        }
-    }*/
+    int dx = abs(int(x2 - x1));
+  int dy = abs(int(y2 - y1));
+  
+  int sx = (x2 >= x1) ? 1 : -1;  // x step direction
+  int sy = (y2 >= y1) ? 1 : -1;  // y step direction
+  
+  int x = int(x1);
+  int y = int(y1);
+  
+  drawPoint(x, y, color(0));  // starting point
+  
+  if (dy <= dx) {
+    // Case 1: slope |m| <= 1
+    int d = 2 * dy - dx;
+    for (int i = 0; i < dx; i++) {
+      x += sx;
+      if (d < 0) {
+        d += 2 * dy;
+      } else {
+        d += 2 * (dy - dx);
+        y += sy;
+      }
+      drawPoint(x, y, color(0));
+    }
+  } else {
+    // Case 2: slope |m| > 1
+    int d = 2 * dx - dy;
+    for (int i = 0; i < dy; i++) {
+      y += sy;
+      if (d < 0) {
+        d += 2 * dx;
+      } else {
+        d += 2 * (dx - dy);
+        x += sx;
+      }
+      drawPoint(x, y, color(0));
+    }
+  }*/
     /*
      stroke(0);
      noFill();
