@@ -52,6 +52,15 @@ public void CGLine(float x1, float y1, float x2, float y2) {
             drawPoint(x, y, 0);
         }
     }
+    /*int m_new = 2 * (int(y2) -int(y1));
+    int slope_error_new = m_new - (int(x1) - int(x2));
+    for(int x = int(x1), y = int(y1); x <= x2; x++){
+        drawPoint(float(x), float(y), color(0));
+        if(slope_error_new >= 0){
+            y++;
+            slope_error_new -= 2 * (x2 - x1);
+        }
+    }*/
     /*
      stroke(0);
      noFill();
