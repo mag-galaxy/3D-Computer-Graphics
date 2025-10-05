@@ -9,87 +9,47 @@ public void CGLine(float x1, float y1, float x2, float y2) {
     // For instance: drawPoint(114, 514, color(255, 0, 0)); signifies drawing a red
     // point at (114, 514).
     
+    ///*
     // start pointA(x1, y1), end pointB(x2, y2)
-    /*float dx = abs(x2 - x1);
-    float dy = abs(y2 - y1);
+    int dx = abs(int(x2 - x1));
+    int dy = abs(int(y2 - y1));
     
     int sx = (x2 >= x1) ? 1 : -1;  // x of vector A->B is + or -
     int sy = (y2 >= y1) ? 1 : -1;  // y of vector A->B is + or -
     
+    int x = int(x1);
+    int y = int(y1);
+    drawPoint(x, y, 0);  // initial point
+    
     if(dy <= dx){ // 0 < abs(slope) <= 1
-        float d = dy - (dx / 2); // initial condition
-        float x = x1;
-        float y = y1;
-        
-        drawPoint(x, y, 0);  // initial point
-        for(int i = 0; i < int(dx); i++){
+        int d = 2*dy - dx; // initial condition
+        for(int i = 0; i < dx; i++){
             x = x + sx;
             if(d < 0){  // choose E
-                d = d + dy;
+                d = d + 2*dy;
             }
             else{  // choose NE
-                d = d + dy - dx;
+                d = d + 2*(dy - dx);
                 y = y + sy;
             }
             drawPoint(x, y, 0);
         }
     }
     else if(dx <= dy){ // abs(slope) > 1
-        float d = dx - (dy / 2); // initial condition
-        float x = x1;
-        float y = y1;
-        
-        drawPoint(x, y, 0);  // initial point
+        int d = 2*dx - dy; // initial condition
         for(int i = 0; i < int(dy); i++){
             y = y + sy;
             if(d < 0){  // choose N
-                d = d + dx;
+                d = d + 2*dx;
             }
             else{  // choose NE
-                d = d + dx - dy;
+                d = d + 2*(dx - dy);
                 x = x + sx;
             }
             drawPoint(x, y, 0);
         }
     }
-    int dx = abs(int(x2 - x1));
-  int dy = abs(int(y2 - y1));
-  
-  int sx = (x2 >= x1) ? 1 : -1;  // x step direction
-  int sy = (y2 >= y1) ? 1 : -1;  // y step direction
-  
-  int x = int(x1);
-  int y = int(y1);
-  
-  drawPoint(x, y, color(0));  // starting point
-  
-  if (dy <= dx) {
-    // Case 1: slope |m| <= 1
-    int d = 2 * dy - dx;
-    for (int i = 0; i < dx; i++) {
-      x += sx;
-      if (d < 0) {
-        d += 2 * dy;
-      } else {
-        d += 2 * (dy - dx);
-        y += sy;
-      }
-      drawPoint(x, y, color(0));
-    }
-  } else {
-    // Case 2: slope |m| > 1
-    int d = 2 * dx - dy;
-    for (int i = 0; i < dy; i++) {
-      y += sy;
-      if (d < 0) {
-        d += 2 * dx;
-      } else {
-        d += 2 * (dx - dy);
-        x += sx;
-      }
-      drawPoint(x, y, color(0));
-    }
-  }*/
+    //*/
     /*
      stroke(0);
      noFill();
@@ -106,20 +66,21 @@ public void CGCircle(float x, float y, float r) {
     // Utilize the function drawPoint(x, y, color) to apply color to the pixel at
     // coordinates (x, y).
     
+    ///*
     // center point(x, y), radius r
-    float X = 0;
-    float Y = r;
-    float d = 1.25 - r;
+    int X = 0;
+    int Y = int(r);
+    int d = int(1 - r);
     while(X <= Y){
         // draw 8 points based on symmetry
-        drawPoint(x+X, y+Y, color(0));
-        drawPoint(x-X, y+Y, color(0));
-        drawPoint(x+X, y-Y, color(0));
-        drawPoint(x-X, y-Y, color(0));
-        drawPoint(x+Y, y+X, color(0));
-        drawPoint(x-Y, y+X, color(0));
-        drawPoint(x+Y, y-X, color(0));
-        drawPoint(x-Y, y-X, color(0));
+        drawPoint(int(x)+X, int(y)+Y, color(0));
+        drawPoint(int(x)+X, int(y)-Y, color(0));
+        drawPoint(int(x)-X, int(y)+Y, color(0));
+        drawPoint(int(x)-X, int(y)-Y, color(0));
+        drawPoint(int(x)+Y, int(y)+X, color(0));
+        drawPoint(int(x)-Y, int(y)+X, color(0));
+        drawPoint(int(x)+Y, int(y)-X, color(0));
+        drawPoint(int(x)-Y, int(y)-X, color(0));
         
         if(d < 0){
             d = d + 2 * X + 3;
@@ -131,6 +92,7 @@ public void CGCircle(float x, float y, float r) {
             Y -= 1;
         }
     }
+    //*/
     /*
     stroke(0);
     noFill();
@@ -147,6 +109,7 @@ public void CGEllipse(float x, float y, float r1, float r2) {
     // Utilize the function drawPoint(x, y, color) to apply color to the pixel at
     // coordinates (x, y).
     
+    ///*
     float X = 0;
     float Y = r2;
     
@@ -189,6 +152,7 @@ public void CGEllipse(float x, float y, float r1, float r2) {
             X += 1;
         }
     }
+    //*/
     /*
     stroke(0);
     noFill();

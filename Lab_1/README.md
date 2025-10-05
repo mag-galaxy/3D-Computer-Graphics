@@ -12,12 +12,14 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 #### line algorithm
 reference: <https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorithm/>
 
+reference: <https://www.geeksforgeeks.org/dsa/bresenhams-line-generation-algorithm/>
+
 Using "mid-point line algorithm", `sx` and `sy` represent direction (+ or -) of x and y of the given line. There are two cases. In the first one, when `dy <= dx`, x is the driving axis. Update x every step, using mid-point to determine whether we should update y or not. On the other hand, when `dx <= dy`, y is the driving axis. Update y every step, using mid-point to determine whether we should update x or not.
 
 #### circle algorithm
 reference: <https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08>
 
-Using "mid-point circle algorithm". Given center point `(x, y)` and radius `r`, starting at the top of the circle, which is  (x, y+r). Only need to calculate pixels form `pi/4` ~ `pi/2` (i.e. `45°` ~ `90°`). At each iteration, ploting 8 points every step based on symmetry (x-axis, y-axis, line with slope 1, line with slope -1).
+Using "mid-point circle algorithm". Given center point `(x, y)` and radius `r`, starting at the top of the circle, which is  (x, y+r). Only need to calculate pixels form `pi/4` ~ `pi/2` (i.e. `45°` ~ `90°`). At each iteration, ploting 8 points every step based on symmetry (x-axis, y-axis, line with slope 1, line with slope -1). Avoid floating point computation vai assigning all parameters as integer type.
 
 #### ellipse algorithm
 reference: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/>
