@@ -52,13 +52,11 @@ reference: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm
 
 Using "mid-point ellipse algorithm". Given center point `(x, y)` and 2 axis `r1`, `r2`. Separate curve of first quadrant into region 1 and 2 via tangent. When tangent < -1, choose `E` or `SE` to be next pixel according to mid-point decission parameter. When tangent > -1, choose `S` or `SE` to be next pixel according to mid-point decission parameter. Then plot 4 points every step based on symmetry (x-axis, y-axis).
 
-The idea is as same as mid-line point algorithm.
-
 Ellipse equation: $(x^2 / r_1^2) +  (y^2 / r_2^2) = 1$
 
 Multiply $r_1^2 * r_2^2$ then we have decision parameter: $F(x, y) = x^2 * r_2^2 + y^2 * r_1*2 - r_1^2 * r_2^2$
 
-The rest is 
+The rest is almost the same as mid-point line algorithm. I am too lazy to type them all down.
 
 ---
 #### Cubic Bezier Curve algorithm
