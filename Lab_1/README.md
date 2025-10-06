@@ -30,6 +30,13 @@ Derive it => $y*(x_2 - x_1) - (y_2 - y_1)*x - (x_2 * y_1 - x_1 * y_2) = 0$
 
 Let $dy = A = (y_1 - y_2) , -dx = B = (x_1 - x_2), C = x_1 * y_2 - x_2 * y_1$, then we have $F(x,y)=A * x + B * y + C$
 
+Because y might be 0.5 in mid-point, we multiply 2, so it becomes $F(x,y)=2 * A * x + 2 * B * y + 2 * C$
+
+Initial condition: $F(x_1 + 1,y_1 + 0.5) = 2 * A * x_1 + 2 * A + 2 * B * y_1 + B + 2 * C = 2 * A + B = 2 * dy - dx$
+
+Previous mid-point:
+
+If we choose E: 
 
 ---
 #### circle algorithm
