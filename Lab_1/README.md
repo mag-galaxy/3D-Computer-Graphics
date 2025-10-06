@@ -31,9 +31,9 @@ reference: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-
 
 follow formulae: 
 
-`x(u) = (1-u)^3 * x1 + 3 * u * (1-u)^2 * x2 + 3 * u^2 * (1-u) * x3 + u^3 * x4`
+$x(u) = (1-u)^3 * x1 + 3 * u * (1-u)^2 * x2 + 3 * u^2 * (1-u) * x3 + u^3 * x4$
 
-`y(u) = (1-u)^3 * y1 + 3 * u * (1-u)^2 * y2 + 3 * u^2 * (1-u) * y3 + u^3 * y4`
+$y(u) = (1-u)^3 * y1 + 3 * u * (1-u)^2 * y2 + 3 * u^2 * (1-u) * y3 + u^3 * y4$
 
 where x and y represent coordinates of given points.
 
