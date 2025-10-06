@@ -30,7 +30,7 @@ Derive it => $y*(x_2 - x_1) - (y_2 - y_1)*x - (x_2 * y_1 - x_1 * y_2) = 0$
 
 Let $dy = A = (y_1 - y_2) , -dx = B = (x_1 - x_2), C = x_1 * y_2 - x_2 * y_1$, then we have $F(x,y)=A * x + B * y + C$
 
-Because y might be 0.5 in mid-point, we multiply 2, so it becomes $F(x,y)=2 * A * x + 2 * B * y + 2 * C$
+Because y might be 0.5 in mid-point, we multiply 2, so it becomes $F(x,y)=2 * A * x + 2 * B * y + 2 * C$ as our decision parameter
 
 Initial condition: $F(x_1 + 1,y_1 + 0.5) = 2 * A * x_1 + 2 * A + 2 * B * y_1 + B + 2 * C = 2 * A + B = 2 * dy - dx$
 
@@ -46,6 +46,12 @@ reference: <https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971d
 
 Using "mid-point circle algorithm". Given center point `(x, y)` and radius `r`, starting at the top of the circle, which is  (x, y+r). Only need to calculate pixels form `pi/4` ~ `pi/2` (i.e. `45°` ~ `90°`). At each iteration, ploting 8 points every step based on symmetry (x-axis, y-axis, line with slope 1, line with slope -1). Avoid floating point computation vai assigning all parameters as integer type.
 
+Circle equation: $x^2 + y^2 = r^2$
+
+Derive it then we have decision parameter: $f(x, y) = x^2 + y^2 - r^2$
+
+The rest is almost the same as mid-point line algorithm. But I am too lazy to type them all down.
+
 ---
 ### ellipse algorithm
 reference: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/>
@@ -56,7 +62,7 @@ Ellipse equation: $(x^2 / r_1^2) +  (y^2 / r_2^2) = 1$
 
 Multiply $r_1^2 * r_2^2$ then we have decision parameter: $F(x, y) = x^2 * r_2^2 + y^2 * r_1*2 - r_1^2 * r_2^2$
 
-The rest is almost the same as mid-point line algorithm. I am too lazy to type them all down.
+The rest is almost the same as mid-point line algorithm. But I am too lazy to type them all down.
 
 ---
 ### Cubic Bezier Curve algorithm
