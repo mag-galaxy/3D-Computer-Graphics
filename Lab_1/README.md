@@ -16,17 +16,19 @@ reference: <https://www.geeksforgeeks.org/dsa/bresenhams-line-generation-algorit
 
 Using "Bresenhams line algorithm", the main idea is as same as the mid-point line algorithm, but we try to avoid floating point computation(see formulae listed below). `sx` and `sy` represent direction (+ or -) of x and y of the given line. There are two cases. In the first one, when `dy <= dx`, x is the driving axis. Update x every step, using mid-point to determine whether we should update y or not. On the other hand, when `dx <= dy`, y is the driving axis. Update y every step, using mid-point to determine whether we should update x or not.
 
-we have two points $(x_1, y_1)$ , $(x_2, y_2)$ and a line function: $y = m * x + c$ where $m = (y_2 - y_1)/(x_2 -x_1)$
+We have two points $(x_1, y_1)$ , $(x_2, y_2)$ and a line function: $y = m * x + c$ where $m = (y_2 - y_1)/(x_2 -x_1)$
 
-insert point $(x_1, y_1)$ into line function => $c = y_1 - m*x_1$
+Insert point $(x_1, y_1)$ into line function => $c = y_1 - m*x_1$
 
-insert constant `c` into line function => $y - m*x - (y_1 - m*x_1) = 0$ => $y - y_1 = m*(x - x_1)$
+Insert constant `c` into line function => $y - m*x - (y_1 - m*x_1) = 0$ => $y - y_1 = m*(x - x_1)$
 
-insert slope `m` => $y - y_1 = ((y_2 - y_1)/(x_2 - x_1))*(x - x_1)$
+Insert slope `m` => $y - y_1 = ((y_2 - y_1)/(x_2 - x_1))*(x - x_1)$
 
-multiply $(x_2 - x_1)$ at both side => $y*(x_2 - x_1) - y_1*(x_2 - x_1) = y_2*(x - x_1) - y_1*(x - x_1)$
+Multiply $(x_2 - x_1)$ at both side => $y*(x_2 - x_1) - y_1*(x_2 - x_1) = (y_2 - y_1)*x - (y_2 - y_1)*x_1$
 
-derive it => $y*(x_2 - x_1) - y_2*(x - x_1) - (x_2*y_1* - x*y_1) = 0$
+Derive it => $y*(x_2 - x_1) - (y_2 - y_1)*x - (x_2 * y_1 - x_1 * y_2) = 0$
+
+Let $dy = A = (y_1 - y_2) , -dx = B = (x_1 - x_2), C = x_1 * y_2 - x_2 * y_1$, then we have $F(x,y)=A * x + B * y + C$
 
 
 #### circle algorithm
