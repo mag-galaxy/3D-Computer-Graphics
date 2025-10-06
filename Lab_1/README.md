@@ -34,9 +34,11 @@ Because y might be 0.5 in mid-point, we multiply 2, so it becomes $F(x,y)=2 * A 
 
 Initial condition: $F(x_1 + 1,y_1 + 0.5) = 2 * A * x_1 + 2 * A + 2 * B * y_1 + B + 2 * C = 2 * A + B = 2 * dy - dx$
 
-Previous mid-point:
+Previous mid-point: $F(x_p + 1, y_p + 0.5) = 2 * A * x_p + 2 * A + 2 * B * y_p + B + 2 * C$
 
-If we choose E: 
+If we choose E: $F(x_p + 2, y_p + 0.5) = 2 * A * x_p + 4 * A + 2 * B * y_p + B + 2 * C$, thus $F(M_{new}) = F(M_{old} + 2 * dy)$
+
+If we choose NE: $F(x_p + 2, y_p + 1.5) = 2 * A * x_p + 4 * A + 2 * B * y_p + 3 * B + 2 * C$, thus $F(M_{new}) = F(M_{old} + 2 * (dy - dx))$
 
 ---
 #### circle algorithm
