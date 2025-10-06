@@ -14,7 +14,20 @@ reference: <https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorith
 
 reference: <https://www.geeksforgeeks.org/dsa/bresenhams-line-generation-algorithm/>
 
-Using "mid-point line algorithm", `sx` and `sy` represent direction (+ or -) of x and y of the given line. There are two cases. In the first one, when `dy <= dx`, x is the driving axis. Update x every step, using mid-point to determine whether we should update y or not. On the other hand, when `dx <= dy`, y is the driving axis. Update y every step, using mid-point to determine whether we should update x or not.
+Using "Bresenhams line algorithm", the main idea is as same as the mid-point line algorithm, but we try to avoid floating point computation(see formulae listed below). `sx` and `sy` represent direction (+ or -) of x and y of the given line. There are two cases. In the first one, when `dy <= dx`, x is the driving axis. Update x every step, using mid-point to determine whether we should update y or not. On the other hand, when `dx <= dy`, y is the driving axis. Update y every step, using mid-point to determine whether we should update x or not.
+
+we have two points $(x_1, y_1)$ , $(x_2, y_2)$ and a line function: $y = m * x + c$ where $m = (y_2 - y_1)/(x_2 -x_1)$
+
+insert point $(x_1, y_1)$ into line function => $c = y_1 - m*x_1$
+
+insert constant `c` into line function => $y - m*x - (y_1 - m*x_1) = 0$ => $y - y_1 = m*(x - x_1)$
+
+insert slope `m` => $y - y_1 = ((y_2 - y_1)/(x_2 - x_1))*(x - x_1)$
+
+multiply $(x_2 - x_1)$ at both side => $y*(x_2 - x_1) - y_1*(x_2 - x_1) = y_2*(x - x_1) - y_1*(x - x_1)$
+
+derive it => $y*(x_2 - x_1) - y_2*(x - x_1) - (x_2*y_1* - x*y_1) = 0$
+
 
 #### circle algorithm
 reference: <https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08>
@@ -31,9 +44,9 @@ reference: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-
 
 follow formulae: 
 
-$x(u) = (1-u)^3 * x1 + 3 * u * (1-u)^2 * x2 + 3 * u^2 * (1-u) * x3 + u^3 * x4$
+$x(u) = (1-u)^3 * x_1 + 3 * u * (1-u)^2 * x_2 + 3 * u^2 * (1-u) * x_3 + u^3 * x_4$
 
-$y(u) = (1-u)^3 * y1 + 3 * u * (1-u)^2 * y2 + 3 * u^2 * (1-u) * y3 + u^3 * y4$
+$y(u) = (1-u)^3 * y_1 + 3 * u * (1-u)^2 * y_2 + 3 * u^2 * (1-u) * y_3 + u^3 * y_4$
 
 where x and y represent coordinates of given points.
 
