@@ -9,7 +9,7 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 - [X] eraser
 
 ## how to implement?
-#### line algorithm
+### line algorithm
 reference: <https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorithm/>
 
 reference: <https://www.geeksforgeeks.org/dsa/bresenhams-line-generation-algorithm/>
@@ -41,13 +41,13 @@ If we choose E: $F(x_p + 2, y_p + 0.5) = 2 * A * x_p + 4 * A + 2 * B * y_p + B +
 If we choose NE: $F(x_p + 2, y_p + 1.5) = 2 * A * x_p + 4 * A + 2 * B * y_p + 3 * B + 2 * C$, thus $F(M_{new}) = F(M_{old} + 2 * (dy - dx))$
 
 ---
-#### circle algorithm
+### circle algorithm
 reference: <https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08>
 
 Using "mid-point circle algorithm". Given center point `(x, y)` and radius `r`, starting at the top of the circle, which is  (x, y+r). Only need to calculate pixels form `pi/4` ~ `pi/2` (i.e. `45°` ~ `90°`). At each iteration, ploting 8 points every step based on symmetry (x-axis, y-axis, line with slope 1, line with slope -1). Avoid floating point computation vai assigning all parameters as integer type.
 
 ---
-#### ellipse algorithm
+### ellipse algorithm
 reference: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/>
 
 Using "mid-point ellipse algorithm". Given center point `(x, y)` and 2 axis `r1`, `r2`. Separate curve of first quadrant into region 1 and 2 via tangent. When tangent < -1, choose `E` or `SE` to be next pixel according to mid-point decission parameter. When tangent > -1, choose `S` or `SE` to be next pixel according to mid-point decission parameter. Then plot 4 points every step based on symmetry (x-axis, y-axis).
@@ -59,7 +59,7 @@ Multiply $r_1^2 * r_2^2$ then we have decision parameter: $F(x, y) = x^2 * r_2^2
 The rest is almost the same as mid-point line algorithm. I am too lazy to type them all down.
 
 ---
-#### Cubic Bezier Curve algorithm
+### Cubic Bezier Curve algorithm
 reference: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/>
 
 follow formulae: 
@@ -71,10 +71,10 @@ $y(u) = (1-u)^3 * y_1 + 3 * u * (1-u)^2 * y_2 + 3 * u^2 * (1-u) * y_3 + u^3 * y_
 where x and y represent coordinates of given points.
 
 ---
-#### eraser
+### eraser
 use nested loop to plot every pixel with color(250) in the area bounded by p1 and p2 (2 vectors)
 
-## DEMO YouTube Video
+## YouTube DEMO Video
 link: <https://youtu.be/NPdWGjGoVe8>
 
 ## used LLM as assistance
