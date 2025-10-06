@@ -20,9 +20,7 @@ We have two points $(x_1, y_1)$ , $(x_2, y_2)$ and a line function: $y = m * x +
 
 Insert point $(x_1, y_1)$ into line function => $c = y_1 - m*x_1$
 
-Insert constant `c` into line function => $y - m * x - (y_1 - m * x_1) = 0$ 
-
-=> $y - y_1 = m*(x - x_1)$
+Insert constant `c` into line function => $y - m * x - (y_1 - m * x_1) = 0$ => $y - y_1 = m*(x - x_1)$
 
 Insert slope `m` => $y - y_1 = ((y_2 - y_1)/(x_2 - x_1))*(x - x_1)$
 
