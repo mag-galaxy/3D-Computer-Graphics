@@ -31,16 +31,19 @@ Derive it => $y*(x_2 - x_1) - (y_2 - y_1)*x - (x_2 * y_1 - x_1 * y_2) = 0$
 Let $dy = A = (y_1 - y_2) , -dx = B = (x_1 - x_2), C = x_1 * y_2 - x_2 * y_1$, then we have $F(x,y)=A * x + B * y + C$
 
 
+---
 #### circle algorithm
 reference: <https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08>
 
 Using "mid-point circle algorithm". Given center point `(x, y)` and radius `r`, starting at the top of the circle, which is  (x, y+r). Only need to calculate pixels form `pi/4` ~ `pi/2` (i.e. `45°` ~ `90°`). At each iteration, ploting 8 points every step based on symmetry (x-axis, y-axis, line with slope 1, line with slope -1). Avoid floating point computation vai assigning all parameters as integer type.
 
+---
 #### ellipse algorithm
 reference: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/>
 
 Using "mid-point ellipse algorithm". Given center point `(x, y)` and 2 axis `r1`, `r2`. Separate curve of first quadrant into region 1 and 2 via tangent. When tangent < -1, choose `E` or `SE` to be next pixel according to mid-point decission parameter. When tangent > -1, choose `S` or `SE` to be next pixel according to mid-point decission parameter. Then plot 4 points every step based on symmetry (x-axis, y-axis).
 
+---
 #### Cubic Bezier Curve algorithm
 reference: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/>
 
@@ -52,6 +55,7 @@ $y(u) = (1-u)^3 * y_1 + 3 * u * (1-u)^2 * y_2 + 3 * u^2 * (1-u) * y_3 + u^3 * y_
 
 where x and y represent coordinates of given points.
 
+---
 #### eraser
 use nested loop to plot every pixel with color(250) in the area bounded by p1 and p2 (2 vectors)
 
