@@ -42,7 +42,8 @@ If we choose NE: $F(x_p + 2, y_p + 1.5) = 2 * A * x_p + 4 * A + 2 * B * y_p + 3 
 
 ---
 ### circle algorithm
-reference: <https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08>
+reference
+* <https://medium.com/@dillihangrae/mid-point-circle-algorithm-84f5971dcd08>
 
 Using "mid-point circle algorithm". Given center point `(x, y)` and radius `r`, starting at the top of the circle, which is  (x, y+r). Only need to calculate pixels form `pi/4` ~ `pi/2` (i.e. `45°` ~ `90°`). At each iteration, ploting 8 points every step based on symmetry (x-axis, y-axis, line with slope 1, line with slope -1). Avoid floating point computation vai assigning all parameters as integer type.
 
@@ -54,7 +55,8 @@ The rest is almost the same as mid-point line algorithm. But I am too lazy to ty
 
 ---
 ### ellipse algorithm
-reference: <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/>
+reference
+* <https://www.geeksforgeeks.org/dsa/midpoint-ellipse-drawing-algorithm/>
 
 Using "mid-point ellipse algorithm". Given center point `(x, y)` and 2 axis `r1`, `r2`. Separate curve of first quadrant into region 1 and 2 via tangent. When tangent < -1, choose `E` or `SE` to be next pixel according to mid-point decission parameter. When tangent > -1, choose `S` or `SE` to be next pixel according to mid-point decission parameter. Then plot 4 points every step based on symmetry (x-axis, y-axis).
 
@@ -66,7 +68,8 @@ The rest is almost the same as mid-point line algorithm. But I am too lazy to ty
 
 ---
 ### Cubic Bezier Curve algorithm
-reference: <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/>
+reference
+* <https://www.geeksforgeeks.org/dsa/cubic-bezier-curve-implementation-in-c/>
 
 follow formulae: 
 
