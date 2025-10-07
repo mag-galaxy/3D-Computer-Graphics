@@ -10,9 +10,9 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 
 ## how to implement?
 ### line algorithm
-reference: <https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorithm/>
-
-reference: <https://www.geeksforgeeks.org/dsa/bresenhams-line-generation-algorithm/>
+reference:
+* <https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorithm/>
+* <https://www.geeksforgeeks.org/dsa/bresenhams-line-generation-algorithm/>
 
 Using "Bresenhams line algorithm", the main idea is as same as the mid-point line algorithm, but we try to avoid floating point computation (see formulae listed below). `sx` and `sy` represent direction (+ or -) of x and y of the given line. There are two cases. In the first one, when `dy <= dx`, x is the driving axis. Update x every step, using mid-point to determine whether we should update y or not. On the other hand, when `dx <= dy`, y is the driving axis. Update y every step, using mid-point to determine whether we should update x or not.
 
