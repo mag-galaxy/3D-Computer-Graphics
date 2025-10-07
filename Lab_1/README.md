@@ -10,7 +10,7 @@ follow instruction: https://hackmd.io/@lab31718/CGlab1
 
 ## how to implement?
 ### line algorithm
-reference:
+reference
 * <https://www.geeksforgeeks.org/dsa/mid-point-line-generation-algorithm/>
 * <https://www.geeksforgeeks.org/dsa/bresenhams-line-generation-algorithm/>
 
@@ -87,4 +87,4 @@ use nested loop to plot every pixel with color(250) in the area bounded by p1 an
 link: <https://youtu.be/NPdWGjGoVe8>
 
 ## used LLM as assistance
-After reading the references websites and writing my own codes, if it still could not work, I would past my code to ChatGPT and explained problems that I encountered so far, asking it where I need to modify to make it right.
+After reading the references websites and writing my own codes, if it still could not work, I would past my code to `ChatGPT` and explained problems that I encountered so far, asking it where I need to modify to make it right.
