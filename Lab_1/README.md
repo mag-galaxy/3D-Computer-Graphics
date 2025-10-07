@@ -24,7 +24,7 @@ Insert constant `c` into line function => $y - m * x - (y_1 - m * x_1) = 0$ => $
 
 Insert slope `m` => $y - y_1 = ((y_2 - y_1)/(x_2 - x_1))*(x - x_1)$
 
-Multiply `$(x_2 - x_1)$` at both side => $y*(x_2 - x_1) - y_1*(x_2 - x_1) = (y_2 - y_1)*x - (y_2 - y_1)*x_1$
+Multiply $(x_2 - x_1)$ at both side => $y*(x_2 - x_1) - y_1*(x_2 - x_1) = (y_2 - y_1)*x - (y_2 - y_1)*x_1$
 
 Derive it => $y*(x_2 - x_1) - (y_2 - y_1)*x - (x_2 * y_1 - x_1 * y_2) = 0$
 
