@@ -2,6 +2,44 @@ public void CGLine(float x1, float y1, float x2, float y2) {
     // TODO HW1
     // Please paste your code from HW1 CGLine.
     
+    int dx = abs(int(x2 - x1));
+    int dy = abs(int(y2 - y1));
+    
+    int sx = (x2 >= x1) ? 1 : -1;  // x of vector A->B is + or -
+    int sy = (y2 >= y1) ? 1 : -1;  // y of vector A->B is + or -
+    
+    int x = int(x1);
+    int y = int(y1);
+    drawPoint(x, y, 0);  // initial point
+    
+    if(dy <= dx){ // 0 < abs(slope) <= 1
+        int d = 2*dy - dx; // initial condition
+        for(int i = 0; i < dx; i++){
+            x = x + sx;
+            if(d < 0){  // choose E
+                d = d + 2*dy;
+            }
+            else{  // choose NE
+                d = d + 2*(dy - dx);
+                y = y + sy;
+            }
+            drawPoint(x, y, 0);
+        }
+    }
+    else if(dx <= dy){ // abs(slope) > 1
+        int d = 2*dx - dy; // initial condition
+        for(int i = 0; i < int(dy); i++){
+            y = y + sy;
+            if(d < 0){  // choose N
+                d = d + 2*dx;
+            }
+            else{  // choose NE
+                d = d + 2*(dx - dy);
+                x = x + sx;
+            }
+            drawPoint(x, y, 0);
+        }
+    }
 }
 
 public boolean outOfBoundary(float x, float y) {
