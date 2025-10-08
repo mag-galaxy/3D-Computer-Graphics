@@ -34,18 +34,28 @@ static class Matrix4{
   void makeRotX(float a) {
     // TODO HW2
     // You need to implement the rotation of x-axis matrix here. (Roll)
-    
-    
+    m[0]  = 1.0f; m[1]  = 0.0f; m[2]  = 0.0f; m[3]  = 0.0f;
+    m[4]  = 0.0f; m[5]  = 1.0f; m[6]  = 0.0f; m[7]  = 0.0f;
+    m[8]  = 0.0f; m[9]  = 0.0f; m[10] = 1.0f; m[11] = 0.0f;
+    m[12] = 0.0f; m[13] = 0.0f; m[14] = 0.0f; m[15] = 1.0f;    
     makeIdentity();
   }
   void makeRotY(float a) {
     // TODO HW2
     // You need to implement the rotation of y-axis matrix here. (Pitch)
+    m[0]  = 1.0f; m[1]  = 0.0f; m[2]  = 0.0f; m[3]  = 0.0f;
+    m[4]  = 0.0f; m[5]  = 1.0f; m[6]  = 0.0f; m[7]  = 0.0f;
+    m[8]  = 0.0f; m[9]  = 0.0f; m[10] = 1.0f; m[11] = 0.0f;
+    m[12] = 0.0f; m[13] = 0.0f; m[14] = 0.0f; m[15] = 1.0f;
     makeIdentity();
   }
   void makeRotZ(float a) {
-     // TODO HW2
-     // You need to implement the rotation of z-axis matrix here. (Yaw)
+    // TODO HW2
+    // You need to implement the rotation of z-axis matrix here. (Yaw)
+    m[0]  = 1.0f; m[1]  = 0.0f; m[2]  = 0.0f; m[3]  = 0.0f;
+    m[4]  = 0.0f; m[5]  = 1.0f; m[6]  = 0.0f; m[7]  = 0.0f;
+    m[8]  = 0.0f; m[9]  = 0.0f; m[10] = 1.0f; m[11] = 0.0f;
+    m[12] = 0.0f; m[13] = 0.0f; m[14] = 0.0f; m[15] = 1.0f;
     makeIdentity();
 
   }
@@ -53,12 +63,20 @@ static class Matrix4{
   void makeTrans(Vector3 t) {
     // TODO HW2
     // You need to implement the translate matrix here.
+    m[0]  = 1.0f; m[1]  = 0.0f; m[2]  = 0.0f; m[3]  = 0.0f;
+    m[4]  = 0.0f; m[5]  = 1.0f; m[6]  = 0.0f; m[7]  = 0.0f;
+    m[8]  = 0.0f; m[9]  = 0.0f; m[10] = 1.0f; m[11] = 0.0f;
+    m[12] = 0.0f; m[13] = 0.0f; m[14] = 0.0f; m[15] = 1.0f;
     makeIdentity();
     
   }
   void makeScale(Vector3 s) {
     // TODO HW2
     // You need to implement the scale matrix here.
+    m[0]  = s.x;  m[1]  = 0.0f; m[2]  = 0.0f; m[3]  = 0.0f;
+    m[4]  = 0.0f; m[5]  = s.y;  m[6]  = 0.0f; m[7]  = 0.0f;
+    m[8]  = 0.0f; m[9]  = 0.0f; m[10] = s.z;  m[11] = 0.0f;
+    m[12] = 0.0f; m[13] = 0.0f; m[14] = 0.0f; m[15] = 1.0f;
     makeIdentity();
   }
   
