@@ -24,19 +24,21 @@ In `Matrix4.ped`, directly modify array `m` (because those transformation method
 
 input vector $t = (t_x, t_y, t_z)$, modify `m[3], m[7], m[11]`. Thus, the translation matrix would be:
 
+<img width="222" height="124" alt="image" src="https://github.com/user-attachments/assets/1cb9a2e3-49e5-4a85-af22-6461827768a8" />
+
 ---
 **Scalor Matrix**
 
 input vector $s = (s_x, s_y, s_z)$, modify `m[0], m[5], m[10]`. Thus, the scalor matrix would be:
-<img width="222" height="124" alt="image" src="https://github.com/user-attachments/assets/1cb9a2e3-49e5-4a85-af22-6461827768a8" />
 
-
+<img width="238" height="116" alt="image" src="https://github.com/user-attachments/assets/315bb1dd-836f-4978-86b1-101e1118f1d4" />
 
 ---
 **Rotation Matrix**
 
 input float `a` as rotation factor
 
+<img width="366" height="345" alt="image" src="https://github.com/user-attachments/assets/4b554e1c-68f2-42c0-b179-f877a77043f7" />
 
 ---
 ### pnpoly
