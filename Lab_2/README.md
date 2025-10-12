@@ -49,30 +49,36 @@ input float `a` as rotation factor
 
 * x-axis
 
+$
 \begin{bmatrix}
     1 & 0 & 0 & 0 \\
     0 & cos(a) & sin(a) & 0 \\
     0 & -sin(a) & cos(a) & 0 \\
     0 & 0 & 0 & 1 
 \end{bmatrix}
+$
 
 * y-axis
 
+$
 \begin{bmatrix}
     cos(a) & 0 & -sin(a) & 0 \\
     0 & 1 & 0 & 0 \\
     sin(a) & 0 & cos(a) & 0 \\
     0 & 0 & 0 & 1 
 \end{bmatrix}
+$
 
 * z-axis
 
+$
 \begin{bmatrix}
     cos(a) & -sin(a) & 0 & 0 \\
     sin(a) & cos(a) & 0 & 0 \\
     0 & 0 & 1 & 0 \\
     0 & 0 & 0 & 1 
 \end{bmatrix}
+$
 
 ---
 ### pnpoly
