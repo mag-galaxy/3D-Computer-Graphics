@@ -24,55 +24,19 @@ In `Matrix4.ped`, directly modify array `m` (because those transformation method
 
 input vector $t = (t_x, t_y, t_z)$, modify `m[3], m[7], m[11]`. Thus, the translation matrix would be:
 
-T =
-$\begin{bmatrix}
-    1 & 0 & 0 & t_x \\
-    0 & 1 & 0 & t_y \\
-    0 & 0 & 1 & t_z \\
-    0 & 0 & 0 & 1 
-\end{bmatrix}$
-
 ---
 **Scalor Matrix**
 
 input vector $s = (s_x, s_y, s_z)$, modify `m[0], m[5], m[10]`. Thus, the scalor matrix would be:
+<img width="222" height="124" alt="image" src="https://github.com/user-attachments/assets/1cb9a2e3-49e5-4a85-af22-6461827768a8" />
 
-S =
-$\begin{bmatrix}
-    s_x & 0 & 0 & 0 \\
-    0 & s_y & 0 & 0 \\
-    0 & 0 & s_z & 0 \\
-    0 & 0 & 0 & 1
-\end{bmatrix}$
+
 
 ---
 **Rotation Matrix**
 
 input float `a` as rotation factor
 
-Rx(a) =
-$\begin{bmatrix}
-    1 & 0 & 0 & 0 \\
-    0 & cos(a) & sin(a) & 0 \\
-    0 & -sin(a) & cos(a) & 0 \\
-    0 & 0 & 0 & 1 
-\end{bmatrix}$
-
-Ry(a) =
-$\begin{bmatrix}
-    cos(a) & 0 & -sin(a) & 0 \\
-    0 & 1 & 0 & 0 \\
-    sin(a) & 0 & cos(a) & 0 \\
-    0 & 0 & 0 & 1 
-\end{bmatrix}$
-
-Rz(a) =
-$\begin{bmatrix}
-    cos(a) & -sin(a) & 0 & 0 \\
-    sin(a) & cos(a) & 0 & 0 \\
-    0 & 0 & 1 & 0 \\
-    0 & 0 & 0 & 1 
-\end{bmatrix}$
 
 ---
 ### pnpoly
