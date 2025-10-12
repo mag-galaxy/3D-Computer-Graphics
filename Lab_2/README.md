@@ -22,9 +22,7 @@ In `Matrix4.ped`, directly modify array `m` (because those transformation method
 
 **Translation Matrix**
 
-input vector $t = (t_x, t_y, t_z)$
-
-modify `m[3], m[7], m[11]`. Thus, the translation matrix would be:
+input vector $t = (t_x, t_y, t_z)$, modify `m[3], m[7], m[11]`. Thus, the translation matrix would be:
 
 T =
 $\begin{bmatrix}
@@ -33,12 +31,11 @@ $\begin{bmatrix}
     0 & 0 & 1 & t_z \\
     0 & 0 & 0 & 1 
 \end{bmatrix}$
+
 ---
 **Scalor Matrix**
 
-input vector $s = (s_x, s_y, s_z)$
-
-modify `m[0], m[5], m[10]`. Thus, the scalor matrix would be:
+input vector $s = (s_x, s_y, s_z)$, modify `m[0], m[5], m[10]`. Thus, the scalor matrix would be:
 
 S =
 $\begin{bmatrix}
@@ -47,6 +44,7 @@ $\begin{bmatrix}
     0 & 0 & s_z & 0 \\
     0 & 0 & 0 & 1
 \end{bmatrix}$
+
 ---
 **Rotation Matrix**
 
