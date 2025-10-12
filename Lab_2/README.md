@@ -49,7 +49,6 @@ $\begin{bmatrix}
 **Rotation Matrix**
 input float `a` as rotation factor
 
-* x-axis
 Rx(a) =
 $\begin{bmatrix}
     1 & 0 & 0 & 0 \\
@@ -58,7 +57,6 @@ $\begin{bmatrix}
     0 & 0 & 0 & 1 
 \end{bmatrix}$
 
-* y-axis
 Ry(a) =
 $\begin{bmatrix}
     cos(a) & 0 & -sin(a) & 0 \\
@@ -67,7 +65,6 @@ $\begin{bmatrix}
     0 & 0 & 0 & 1 
 \end{bmatrix}$
 
-* z-axis
 Rz(a) =
 $\begin{bmatrix}
     cos(a) & -sin(a) & 0 & 0 \\
