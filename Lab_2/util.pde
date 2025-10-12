@@ -1,7 +1,7 @@
 public void CGLine(float x1, float y1, float x2, float y2) {
     // TODO HW1
     // Please paste your code from HW1 CGLine.
-    
+    // start pointA(x1, y1), end pointB(x2, y2)
     int dx = abs(int(x2 - x1));
     int dy = abs(int(y2 - y1));
     
@@ -23,7 +23,7 @@ public void CGLine(float x1, float y1, float x2, float y2) {
                 d = d + 2*(dy - dx);
                 y = y + sy;
             }
-            drawPoint(x, y, 0);
+            drawPoint(x, y, color(0));
         }
     }
     else if(dx <= dy){ // abs(slope) > 1
@@ -37,7 +37,7 @@ public void CGLine(float x1, float y1, float x2, float y2) {
                 d = d + 2*(dx - dy);
                 x = x + sx;
             }
-            drawPoint(x, y, 0);
+            drawPoint(x, y, color(0));
         }
     }
 }

@@ -21,9 +21,9 @@ reference:
 In `Matrix4.ped`, directly modify array `m` (because those transformation methods are void), which represents 16 elements of the 4x4 matrix, treat it as translation matrix, scalor matrix, rotation matrix
 
 **Translation Matrix**
-input vector $t = t_x, t_y, t_z$
+input vector $t = (t_x, t_y, t_z)$
 
-translation uses `m[3], m[7], m[11]`. Thus, the translation matrix would be:
+modify `m[3], m[7], m[11]`. Thus, the translation matrix would be:
 
 \begin{bmatrix}
     1 & 0 & 0 & $t_x$ \\
@@ -33,9 +33,9 @@ translation uses `m[3], m[7], m[11]`. Thus, the translation matrix would be:
 \end{bmatrix}
 
 **Scalor Matrix**
-input vector $s = s_x, s_y, s_z$
+input vector $s = (s_x, s_y, s_z)$
 
-scalor uses `m[0], m[5], m[10]`. Thus, the scalor matrix would be:
+modify `m[0], m[5], m[10]`. Thus, the scalor matrix would be:
 
 \begin{bmatrix}
     $s_x$ & 0 & 0 & 0 \\
@@ -45,6 +45,34 @@ scalor uses `m[0], m[5], m[10]`. Thus, the scalor matrix would be:
 \end{bmatrix}
 
 **Rotation Matrix**
+input float `a` as rotation factor
+
+* x-axis
+
+\begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & cos(a) & sin(a) & 0 \\
+    0 & -sin(a) & cos(a) & 0 \\
+    0 & 0 & 0 & 1 
+\end{bmatrix}
+
+* y-axis
+
+\begin{bmatrix}
+    cos(a) & 0 & -sin(a) & 0 \\
+    0 & 1 & 0 & 0 \\
+    sin(a) & 0 & cos(a) & 0 \\
+    0 & 0 & 0 & 1 
+\end{bmatrix}
+
+* z-axis
+
+\begin{bmatrix}
+    cos(a) & -sin(a) & 0 & 0 \\
+    sin(a) & cos(a) & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 
+\end{bmatrix}
 
 ---
 ### pnpoly
