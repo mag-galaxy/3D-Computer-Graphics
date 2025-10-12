@@ -21,6 +21,7 @@ reference:
 In `Matrix4.ped`, directly modify array `m` (because those transformation methods are void), which represents 16 elements of the 4x4 matrix, treat it as translation matrix, scalor matrix, rotation matrix
 
 **Translation Matrix**
+
 input vector $t = (t_x, t_y, t_z)$
 
 modify `m[3], m[7], m[11]`. Thus, the translation matrix would be:
@@ -32,8 +33,9 @@ $\begin{bmatrix}
     0 & 0 & 1 & t_z \\
     0 & 0 & 0 & 1 
 \end{bmatrix}$
-
+---
 **Scalor Matrix**
+
 input vector $s = (s_x, s_y, s_z)$
 
 modify `m[0], m[5], m[10]`. Thus, the scalor matrix would be:
@@ -45,8 +47,9 @@ $\begin{bmatrix}
     0 & 0 & s_z & 0 \\
     0 & 0 & 0 & 1
 \end{bmatrix}$
-
+---
 **Rotation Matrix**
+
 input float `a` as rotation factor
 
 Rx(a) =
