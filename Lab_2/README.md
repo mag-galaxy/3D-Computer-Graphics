@@ -38,7 +38,8 @@ input vector $s = (s_x, s_y, s_z)$, modify `m[0], m[5], m[10]`. Thus, the scalor
 
 input float `a` as rotation factor
 
-<img width="366" height="345" alt="image" src="https://github.com/user-attachments/assets/4b554e1c-68f2-42c0-b179-f877a77043f7" />
+<img width="361" height="346" alt="image" src="https://github.com/user-attachments/assets/a088b65c-5792-46c1-833c-cfa03dc584ed" />
+
 
 ---
 ### pnpoly
