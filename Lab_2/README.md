@@ -76,6 +76,8 @@ $\begin{bmatrix}
 
 ---
 ### pnpoly
+reference:
+* https://www.geeksforgeeks.org/dsa/how-to-check-if-a-given-point-lies-inside-a-polygon/
 
 ---
 ### bounding box
