@@ -5,7 +5,7 @@ modify Matrix4.pde and util.pde
 
 ## functions completed
 - [X] 3 transformation matrices
-- [ ] `pnpoly`
+- [X] `pnpoly`
 - [ ] bounding box
 - [ ] Sutherland Hodgman algorithm
 
@@ -45,6 +45,12 @@ input float `a` as rotation factor
 ### pnpoly
 reference:
 * https://www.geeksforgeeks.org/dsa/how-to-check-if-a-given-point-lies-inside-a-polygon/
+
+First check structure of `Vector3[] vertexes` through `print`, vertexes = [(a.x, a.y, a.z), (b.x, b.y, b.z)...]
+
+Use Rat Casting to determine whether a point(x, y) is inside a given polygon or not. Set up initial value of variables, `boolean inside` is used to record how many times the horizontal line `y` intersects with polygon edges. If count of intersects is odd, then (x, y) is inside the polygon (or on the edge), on the other hand, if count of intersects is even, then (x, y) is outside the polygon. Initial value of `inside` is `false`, each time we find an intersection, flip the value of variable `inside`. At the end, return `inside`.
+
+In each iteration, `(x1, y1)` and `(x2, y2)` create a line, which is an edge of the polygon. Check if `y > min(y1, y2)`, if `y <= max(y1, y2)`, if `x <= max(x1, x2)` in order, then calculate x value of intersection point of horizontal line `y` and the line between (x1, y1), (x2, y2). If `x1==x2`, it's a vertical line, there must exists an intersection point. If `x <= x_intersection`, there also exists an intersection point. Flip value of `inside`.
 
 ---
 ### bounding box

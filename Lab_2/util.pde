@@ -64,13 +64,34 @@ boolean pnpoly(float x, float y, Vector3[] vertexes) {
     // TODO HW2 
     // You need to check the coordinate p(x,v) if inside the vertices. 
     // If yes return true, vice versa.
-
-    return false;
+    
+    //print(vertexes);
+    // vertexes = [(a.x, a.y, a.z), (b.x, b.y, b.z)...]
+    int n = vertexes.length;
+    float x1 = vertexes[0].x, y1 = vertexes[0].y;
+    float x2, y2;
+    boolean inside = false;
+    for(int i = 1; i <= n; ++i){
+        // next point: (x2, y2)
+        x2 = vertexes[i % n].x;
+        y2 = vertexes[i % n].y;
+        if(y > min(y1, y2)){
+            if(y <= max(y1, y2)){
+                if(x <= max(x1, x2)){
+                    float x_intersection = x1 + (y-y1) * (x2-x1) / (y2-y1);
+                    if(x1 == x2 || x <= x_intersection){
+                        inside = !inside;
+                    }
+                }
+            }
+        }
+        x1 = x2;
+        y1 = y2;
+    }
+    return inside;
 }
 
 public Vector3[] findBoundBox(Vector3[] v) {
-    
-    
     // TODO HW2 
     // You need to find the bounding box of the vertices v.
     // r1 -------
