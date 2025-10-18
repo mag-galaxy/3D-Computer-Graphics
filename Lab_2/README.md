@@ -54,6 +54,9 @@ In each iteration, `(x1, y1)` and `(x2, y2)` create a line, which is an edge of 
 
 ---
 ### bounding box
+given series of vertices v, again, check structure of `Vector3[] v` through `print`, v = [(a.x, a.y, a.z), (b.x, b.y, b.z)...]
+
+We need to find min X , min Y, max X, max Y of those vertices.Set 4 variables to store 4 values listed above. To find a min value, initialize variable with max value a float can store, in contrast, to find a max value, initialize variable with min value a float can store. Then travere all vertices via loop, do comparison each iteration. At the end, return a vector with min X and min Y, another vector with max X and max Y.
 
 ---
 ### Sutherland Hodgman algorithm

@@ -99,9 +99,19 @@ public Vector3[] findBoundBox(Vector3[] v) {
     //   |  /  \ |
     //   | /____\|
     //    ------- r2
-
-    Vector3 recordminV = new Vector3(0);
-    Vector3 recordmaxV = new Vector3(999);
+    
+    //print(v);
+    // v = [(a.x, a.y, a.z), (b.x, b.y, b.z)...]
+    float minX = Float.MAX_VALUE, minY = Float.MAX_VALUE, maxX = -Float.MAX_VALUE, maxY = -Float.MAX_VALUE;
+    for(int i = 0; i < v.length; ++i){
+        if(v[i].x <= minX){minX = v[i].x;}
+        if(v[i].y <= minY){minY = v[i].y;}
+        if(v[i].x >= maxX){maxX = v[i].x;}
+        if(v[i].y >= maxY){maxY = v[i].y;}
+    }
+    
+    Vector3 recordminV = new Vector3(minX, minY, 0);
+    Vector3 recordmaxV = new Vector3(maxX, maxY, 0);
     Vector3[] result = { recordminV, recordmaxV };
     return result;
 
