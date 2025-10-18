@@ -57,3 +57,7 @@ In each iteration, `(x1, y1)` and `(x2, y2)` create a line, which is an edge of 
 
 ---
 ### Sutherland Hodgman algorithm
+
+---
+## used LLM as assistance
+First I read the references websites. If I could not understand algorithms, I would ask `ChatGPT` to explain it. Then I wrote codes to implement the function, if it could not work, I would past my code to ChatGPT and typed problems that I encountered so far, asking it where I need to modify to make it right.
