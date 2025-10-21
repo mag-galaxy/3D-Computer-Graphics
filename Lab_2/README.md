@@ -60,6 +60,7 @@ We need to find min X , min Y, max X, max Y of those vertices.Set 4 variables to
 
 ---
 ### Sutherland Hodgman algorithm
+reference: https://www.geeksforgeeks.org/dsa/polygon-clipping-sutherland-hodgman-algorithm/
 
 ---
 ## used LLM as assistance
