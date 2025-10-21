@@ -139,31 +139,31 @@ public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] bounda
     
     for(int i = 0; i < boundary.length; ++i){
         int j = (i+1) % boundary.length;  // i, j are consecutive indexes of boundary
+        float x1 = boundary[i].x, y1 = boundary[i].y;
+        float x2 = boundary[j].x, y2 = boundary[j].y;
+        output.clear();
         
-        for(int k = 0; k < points.length; ++k){
-            // (x1, y1) to (x2, y2) is line of boundary
-            float x1 = input.get(i).x, y1 = input.get(i).y;
-            float x2 = input.get(j).x, y2 = input.get(j).y;
-            
-            int l = (k+1) % points.length;  // k, l are consecutive indexes of polygon
-            float kx = points[k].x, ky = points[k].y;
-            float lx = points[l].x, ly = points[l].y;
+        for(int k = 0; k < input.size(); ++k){            
+            //int l = (k+1) % input.size();  // k, l are consecutive indexes of polygon
+            int l = (k + input.size() - 1) % input.size();
+            float kx = input.get(k).x, ky = input.get(k).y;
+            float lx = input.get(l).x, ly = input.get(l).y;
             
             // is the point inside of the boundary?
             float k_pos = (x2 - x1) * (ky - y1) - (y2 - y1) * (kx - x1);
             float l_pos = (x2 - x1) * (ly - y1) - (y2 - y1) * (lx - x1);
             
             // inside to inside
-            if(k_pos <= 0 && l_pos <= 0){
-                output.add(points[l]);
+            if(k_pos < 0 && l_pos < 0){
+                output.add(points[k]);
             }
             // outside to inside
-            else if(k_pos > 0 && l_pos <= 0){
+            else if(k_pos >= 0 && l_pos < 0){
                 output.add(intersection(x1, y1, x2, y2, kx, ky, lx, ly));
-                output.add(points[l]);
+                output.add(points[k]);
             }
             // inside to outside
-            else if(k_pos <= 0 && l_pos > 0){
+            else if(k_pos < 0 && l_pos >= 0){
                 output.add(intersection(x1, y1, x2, y2, kx, ky, lx, ly));
             }
         }
