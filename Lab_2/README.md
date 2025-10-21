@@ -6,7 +6,7 @@ modify Matrix4.pde and util.pde
 ## functions completed
 - [X] 3 transformation matrices
 - [X] `pnpoly`
-- [ ] bounding box
+- [X] bounding box
 - [ ] Sutherland Hodgman algorithm
 
 ## struction of class `Matrix4`
