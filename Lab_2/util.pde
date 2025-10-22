@@ -121,14 +121,16 @@ public Vector3 intersection(float x1, float y1, float x2, float y2, float x3, fl
     //float numy = (x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4);
     //float den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
     
-    float a1 = y2 - y1, b1 = x1 - x2, c1 = a1 * x1 + b1 * y1;
-    float a2 = y4 - y3, b2 = x3 - x4, c2 = a2 * x3 + b2 * y3;
+    float a1 = y2 - y1, b1 = x1 - x2, c1 = - (a1 * x1 + b1 * y1);
+    float a2 = y4 - y3, b2 = x3 - x4, c2 = - (a2 * x3 + b2 * y3);
     float d = a1 * b2 - a2 * b1;
     float x = (b1 * c2 - b2 * c1) / d;
     float y = (a2 * c1 - a1 * c2) / d;
     
-    Vector3 intersec_point = new Vector3(x, y, 0);
-    return intersec_point;
+    if (abs(d) < 1e-6) return null;
+    
+    Vector3 intersection_point = new Vector3(x, y, 0);
+    return intersection_point;
 }
 
 public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] boundary) {
@@ -152,25 +154,24 @@ public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] bounda
         
         for(int k = 0; k < input.size(); ++k){            
             int l = (k+1) % input.size();  // k, l are consecutive indexes of polygon, k -> l
-            //int l = (k + input.size() - 1) % input.size();
             float kx = input.get(k).x, ky = input.get(k).y;  // current point of the current polygon
             float lx = input.get(l).x, ly = input.get(l).y;  // next point of the current polygon
             
-            // is the point inside of the boundary?
-            float k_pos = (x2 - x1) * (ky - y1) - (y2 - y1) * (kx - x1);
-            float l_pos = (x2 - x1) * (ly - y1) - (y2 - y1) * (lx - x1);
+            // is the point inside of the boundary line?
+            boolean k_pos = ((x2 - x1) * (ky - y1) - (y2 - y1) * (kx - x1)) < 0;
+            boolean l_pos = ((x2 - x1) * (ly - y1) - (y2 - y1) * (lx - x1)) < 0;
             
             // inside to inside
-            if(k_pos < 0 && l_pos < 0){
+            if(k_pos && l_pos){
                 output.add(input.get(l));
             }
             // outside to inside
-            else if(k_pos >= 0 && l_pos < 0){
+            else if(!k_pos && l_pos){
                 output.add(intersection(x1, y1, x2, y2, kx, ky, lx, ly));
                 output.add(input.get(l));
             }
             // inside to outside
-            else if(k_pos < 0 && l_pos >= 0){
+            else if(k_pos && !l_pos){
                 output.add(intersection(x1, y1, x2, y2, kx, ky, lx, ly));
             }
             // outside to outside
@@ -178,7 +179,8 @@ public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] bounda
                 // add nothing to the output
             }
         }
-        input = output;  // the output of this round will be the input of next round
+        input = new ArrayList<Vector3>(output);  // the output of this round will be the input of next round
+        // array uses pointer, cannot directly write "input = output"
     }    
     //output = input;
     Vector3[] result = new Vector3[output.size()];
