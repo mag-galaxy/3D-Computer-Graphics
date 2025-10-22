@@ -60,7 +60,9 @@ We need to find min X , min Y, max X, max Y of those vertices.Set 4 variables to
 
 ---
 ### Sutherland Hodgman algorithm
-reference: https://www.geeksforgeeks.org/dsa/polygon-clipping-sutherland-hodgman-algorithm/
+reference:
+* https://www.geeksforgeeks.org/dsa/polygon-clipping-sutherland-hodgman-algorithm/
+* https://www.geeksforgeeks.org/maths/point-of-intersection-of-two-lines-formula/
 
 input parameters `Vector3[] points`: points of the polygon, `Vector3[] boundary`: points of the clipping window.
 
