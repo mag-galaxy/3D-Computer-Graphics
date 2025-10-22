@@ -62,6 +62,12 @@ We need to find min X , min Y, max X, max Y of those vertices.Set 4 variables to
 ### Sutherland Hodgman algorithm
 reference: https://www.geeksforgeeks.org/dsa/polygon-clipping-sutherland-hodgman-algorithm/
 
+input parameters `Vector3[] points`: points of the polygon, `Vector3[] boundary`: points of the clipping window.
+
+local variables `ArrayList<Vector3> input`: input vertices of each pass, `ArrayList<Vector3> output`: output vertices of each pass. The `input` of first pass equals to `points`.
+
+in this nested loop, the outter one is for each line of clipping window (`boundary`), the inner one is for each point of current polygon (`input`)
+
 ---
 ## used LLM as assistance
 First I read the references websites. If I could not understand algorithms, I would ask `ChatGPT` to explain it. Then I wrote codes to implement the function, if it could not work, I would past my code to ChatGPT and typed problems that I encountered so far, asking it where I need to modify to make it right.
