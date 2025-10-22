@@ -117,11 +117,17 @@ public Vector3[] findBoundBox(Vector3[] v) {
 }
 
 public Vector3 intersection(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4){
-    float numx = (x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4);
-    float numy = (x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4);
-    float den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
+    //float numx = (x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4);
+    //float numy = (x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4);
+    //float den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
     
-    Vector3 intersec_point = new Vector3(numx/den, numy/den, 0);
+    float a1 = y2 - y1, b1 = x1 - x2, c1 = a1 * x1 + b1 * y1;
+    float a2 = y4 - y3, b2 = x3 - x4, c2 = a2 * x3 + b2 * y3;
+    float d = a1 * b2 - a2 * b1;
+    float x = (b1 * c2 - b2 * c1) / d;
+    float y = (a2 * c1 - a1 * c2) / d;
+    
+    Vector3 intersec_point = new Vector3(x, y, 0);
     return intersec_point;
 }
 
