@@ -134,8 +134,8 @@ public Vector3 intersection(float x1, float y1, float x2, float y2, float x3, fl
 }
 
 public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] boundary) {
-    ArrayList<Vector3> input = new ArrayList<Vector3>();
-    ArrayList<Vector3> output = new ArrayList<Vector3>();
+    ArrayList<Vector3> input = new ArrayList<Vector3>();  // empty
+    ArrayList<Vector3> output = new ArrayList<Vector3>();  // empty
     for (int i = 0; i < points.length; i += 1) {
         input.add(points[i]);  // input of firsr iteration equals to points
     }
@@ -145,12 +145,18 @@ public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] bounda
     // The function you pass 2 parameter. One is the vertexes of the shape "points".
     // And the other is the vertices of the "boundary".
     // The output is the vertices of the polygon.
-    
+    /*
+    print("this is input: ");
+    print(input);
+    print("this is boundary: ");
+    print(boundary);
+    */
+    ///*
     for(int i = 0; i < boundary.length; ++i){
         int j = (i+1) % boundary.length;  // i, j are consecutive indexes of boundary
         float x1 = boundary[i].x, y1 = boundary[i].y;
         float x2 = boundary[j].x, y2 = boundary[j].y;
-        output.clear();  // output will be updated each pass
+        output.clear();  // update output each pass, the contents of "output" will be empty
         
         for(int k = 0; k < input.size(); ++k){            
             int l = (k+1) % input.size();  // k, l are consecutive indexes of polygon, k -> l
@@ -181,7 +187,8 @@ public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] bounda
         }
         input = new ArrayList<Vector3>(output);  // the output of this round will be the input of next round
         // array uses pointer, cannot directly write "input = output"
-    }    
+    }
+    //*/
     //output = input;
     Vector3[] result = new Vector3[output.size()];
     for (int i = 0; i < result.length; i += 1) {
