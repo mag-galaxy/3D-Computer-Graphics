@@ -7,7 +7,7 @@ modify Matrix4.pde and util.pde
 - [X] 3 transformation matrices
 - [X] `pnpoly`
 - [X] bounding box
-- [ ] Sutherland Hodgman algorithm
+- [X] Sutherland Hodgman algorithm
 
 ## struction of class `Matrix4`
 Matrix4: a 4x4 matrix, 16 elements are stored in array`m` (m[0] to m[15])

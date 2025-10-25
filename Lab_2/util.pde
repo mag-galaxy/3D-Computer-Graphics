@@ -117,17 +117,14 @@ public Vector3[] findBoundBox(Vector3[] v) {
 }
 
 public Vector3 intersection(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4){
-    //float numx = (x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4);
-    //float numy = (x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4);
-    //float den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
-    
+    //calculate intersection point of line (x1,y1)-(x2,y2) and line (x3,y3)-(x4,y4)
     float a1 = y2 - y1, b1 = x1 - x2, c1 = - (a1 * x1 + b1 * y1);
     float a2 = y4 - y3, b2 = x3 - x4, c2 = - (a2 * x3 + b2 * y3);
     float d = a1 * b2 - a2 * b1;
     float x = (b1 * c2 - b2 * c1) / d;
     float y = (a2 * c1 - a1 * c2) / d;
     
-    if (abs(d) < 1e-6) return null;
+    if (abs(d) < 1e-6) return null; // if d == 0
     
     Vector3 intersection_point = new Vector3(x, y, 0);
     return intersection_point;
@@ -145,27 +142,31 @@ public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] bounda
     // The function you pass 2 parameter. One is the vertexes of the shape "points".
     // And the other is the vertices of the "boundary".
     // The output is the vertices of the polygon.
-    /*
+    ///*
     print("this is input: ");
     print(input);
     print("this is boundary: ");
     print(boundary);
-    */
+    //*/
     ///*
     for(int i = 0; i < boundary.length; ++i){
         int j = (i+1) % boundary.length;  // i, j are consecutive indexes of boundary
-        float x1 = boundary[i].x, y1 = boundary[i].y;
-        float x2 = boundary[j].x, y2 = boundary[j].y;
-        output.clear();  // update output each pass, the contents of "output" will be empty
+        Vector3 A = boundary[i];
+        Vector3 B = boundary[j];
+        output.clear();  // update output each pass, reset "output" to be empty
         
         for(int k = 0; k < input.size(); ++k){            
             int l = (k+1) % input.size();  // k, l are consecutive indexes of polygon, k -> l
-            float kx = input.get(k).x, ky = input.get(k).y;  // current point of the current polygon
-            float lx = input.get(l).x, ly = input.get(l).y;  // next point of the current polygon
+            Vector3 Pk = input.get(k);  // current point of the current polygon
+            Vector3 Pl = input.get(l);  // next point of the current polygon
             
-            // is the point inside of the boundary line?
-            boolean k_pos = ((x2 - x1) * (ky - y1) - (y2 - y1) * (kx - x1)) < 0;
-            boolean l_pos = ((x2 - x1) * (ly - y1) - (y2 - y1) * (lx - x1)) < 0;
+            Vector3 A_B = new Vector3(B.x - A.x, B.y - A.y, B.z - A.z);
+            Vector3 A_Pk = new Vector3(Pk.x - A.x, Pk.y - A.y, Pk.z - A.z);
+            Vector3 A_Pl = new Vector3(Pl.x - A.x, Pl.y - A.y, Pl.z - A.z);
+            
+            // is the point inside (at left) of the boundary line?
+            boolean k_pos = ((A_B.x * A_Pk.y - A_B.y * A_Pk.x) < 0);
+            boolean l_pos = ((A_B.x * A_Pl.y - A_B.y * A_Pl.x) < 0);
             
             // inside to inside
             if(k_pos && l_pos){
@@ -173,19 +174,20 @@ public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] bounda
             }
             // outside to inside
             else if(!k_pos && l_pos){
-                output.add(intersection(x1, y1, x2, y2, kx, ky, lx, ly));
+                output.add(intersection(A.x, A.y, B.x, B.y, Pk.x, Pk.y, Pl.x, Pl.y));
                 output.add(input.get(l));
             }
             // inside to outside
             else if(k_pos && !l_pos){
-                output.add(intersection(x1, y1, x2, y2, kx, ky, lx, ly));
+                output.add(intersection(A.x, A.y, B.x, B.y, Pk.x, Pk.y, Pl.x, Pl.y));
             }
             // outside to outside
             else{
                 // add nothing to the output
             }
         }
-        input = new ArrayList<Vector3>(output);  // the output of this round will be the input of next round
+        input = new ArrayList<Vector3>(output);
+        // the output of this round will be the input of next round
         // array uses pointer, cannot directly write "input = output"
     }
     //*/
