@@ -56,7 +56,7 @@ In each iteration, `(x1, y1)` and `(x2, y2)` create a line, which is an edge of 
 ### bounding box
 given series of vertices v, again, check structure of `Vector3[] v` through `print`, v = [(a.x, a.y, a.z), (b.x, b.y, b.z)...]
 
-We need to find min X , min Y, max X, max Y of those vertices.Set 4 variables to store 4 values listed above. To find a min value, initialize variable with max value a float can store, in contrast, to find a max value, initialize variable with min value a float can store. Then travere all vertices via loop, do comparison each iteration. At the end, return a vector with min X and min Y, another vector with max X and max Y.
+We need to find min X , min Y, max X, max Y among those vertices. Set 4 variables to store 4 values listed above. To find a min value, initialize variable with max value a float can store, in contrast, to find a max value, initialize variable with min value a float can store. Then travere all vertices via loop, do comparison each iteration. At the end, return a vector with min X and min Y, another vector with max X and max Y.
 
 ---
 ### Sutherland Hodgman algorithm
@@ -68,7 +68,7 @@ input parameters `Vector3[] points`: points of the polygon, `Vector3[] boundary`
 
 local variables `ArrayList<Vector3> input`: input vertices of each pass, `ArrayList<Vector3> output`: output vertices of each pass. The `input` of first pass equals to `points`.
 
-in this nested loop, the outter one is for each line of clipping window (`boundary`), the inner one is for each point of current polygon (`input`)
+in this nested loop, the outter one is for each line (2 points) of clipping window (`boundary`), the inner one is for each line (2 points) of current polygon (`input`)
 
 ---
 ## used LLM as assistance
