@@ -142,12 +142,12 @@ public Vector3[] Sutherland_Hodgman_algorithm(Vector3[] points, Vector3[] bounda
     // The function you pass 2 parameter. One is the vertexes of the shape "points".
     // And the other is the vertices of the "boundary".
     // The output is the vertices of the polygon.
-    ///*
-    print("this is input: ");
-    print(input);
-    print("this is boundary: ");
-    print(boundary);
-    //*/
+
+    //print("this is input: ");
+    //print(input);
+    //print("this is boundary: ");
+    //print(boundary);
+
     ///*
     for(int i = 0; i < boundary.length; ++i){
         int j = (i+1) % boundary.length;  // i, j are consecutive indexes of boundary
