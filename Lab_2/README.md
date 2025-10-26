@@ -77,7 +77,7 @@ At the end of each iteration, copy the contents of output to the input. Note tha
 I wrote an additional function `intersection` for calculating intersection point of two lines. Please see the secone reference.
 
 ## YouTube DEMO Video
-link:
+link: <https://youtu.be/DJb7IB1640Q>
 
 ## used LLM as assistance
 First I read the references websites. If I could not understand algorithms, I would ask `ChatGPT` to explain it. Then I wrote codes to implement the function, if it could not work, I would past my code to ChatGPT and typed problems that I encountered so far, asking it where I need to modify to make it right.
