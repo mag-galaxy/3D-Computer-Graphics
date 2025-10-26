@@ -68,13 +68,13 @@ Input parameters `Vector3[] points`: points of the polygon, `Vector3[] boundary`
 
 Local variables `ArrayList<Vector3> input`: input vertices of each pass, `ArrayList<Vector3> output`: output vertices of each pass. The `input` of first pass equals to `points`.
 
-In this nested loop, the outter one is for each line (2 points) of clipping window (`boundary`), the inner one is for each line (2 points) of current polygon (`input`). `Pk` is the current input point, and `Pl` is the next input point. At each iteration of inner loop, compute vector `A->B`, `A->Pk`, `A-Pl`. Then check if `Pk` and `Pl` are inside the clipping window. Note that the coordinate system of computer graphics is that x-axis increases to the right, while y-axis increases downward. Thus, if $(AB_x * APk_y - AB_y * APk_x) < 0$, `Pk` lies inside the boundary, otherwise, if it is > 0, `Pk` lies outside the boundary.
+In this nested loop, the outter one is for each line (2 points) of clipping window (`boundary`), the inner one is for each line (2 points) of current polygon (`input`). `Pk` is the current input point, and `Pl` is the next input point. At each iteration of inner loop, compute vector `A->B`, `A->Pk`, `A-Pl`. Then check if `Pk` and `Pl` are inside the clipping window. Note that the coordinate system of computer graphics is that x-axis increases to the right, while y-axis increases downward. Thus, if (A_B.x * A_Pk.y - A_B.y * A_Pk.x) < 0, `Pk` lies inside the boundary, otherwise, if it is > 0, `Pk` lies outside the boundary.
 
 After that, there four cases of position of two points `Pk` and `Pl`. Case 1: inside to inside, then add `Pl` to the output. Case 2: outside to inside, then add intersection point and `Pl` in order. Case 3: inside to outside, then add intersection point only. Case 4: outside to outside, do nothing.
 
 At the end of each iteration, copy the contents of output to the input. Note that we cannot use `input = output` directly. Finally, return `output` of last iteration.
 
-I wrote an additional function `intersection` for calculating intersection point of two lines. Please see the secone reference.
+I wrote an additional function `intersection` for calculating intersection point of two lines. Please see the second reference.
 
 ## YouTube DEMO Video
 link: <https://youtu.be/DJb7IB1640Q>
