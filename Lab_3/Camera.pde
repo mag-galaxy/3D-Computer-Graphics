@@ -47,21 +47,41 @@ public class Camera {
         // Where GH_FOV has been declared as a global variable.
         // Finally, pass the result into projection matrix.
 
-        projection = Matrix4.Identity();
+        projection.makeIdentity();
+        projection.m[5] = float(wid)/float(hei);
+        projection.m[10] = 1;
+        projection.m[11] = 1;
+        projection.m[14] = tan(GH_FOV);
+        projection.m[15] = 0;
 
     }
 
     void setPositionOrientation(Vector3 pos, float rotX, float rotY) {
 
     }
-
+    
     void setPositionOrientation(Vector3 pos, Vector3 lookat) {
         // TODO HW3
         // This function takes two parameters, which are the position of the camera and
         // the point the camera is looking at.
         // We uses topVector = (0,1,0) to calculate the eye matrix.
         // Finally, pass the result into worldView matrix.
-
-        worldView = Matrix4.Identity();
+        
+        Vector3 topVector = new Vector3(0,1,0);
+        Vector3 eyeVector = new Vector3(lookat.x-pos.x, lookat.y - pos.y, lookat.z - pos.z);
+        Vector3 v1 = Vector3.cross(topVector, eyeVector);
+        Vector3 v3 = new Vector3(eyeVector.x, eyeVector.y, eyeVector.z);
+        Vector3 v2 = Vector3.cross(v3, v1);
+        
+        worldView.makeIdentity();
+        worldView.m[0] = v1.x;
+        worldView.m[1] = v1.y;
+        worldView.m[2] = v1.z;
+        worldView.m[4] = v2.x;
+        worldView.m[5] = v2.y;
+        worldView.m[6] = v2.z;
+        worldView.m[8] = v3.x;
+        worldView.m[9] = v3.y;
+        worldView.m[10] = v3.z;
     }
 }

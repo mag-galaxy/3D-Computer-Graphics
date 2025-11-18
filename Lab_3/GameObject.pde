@@ -92,9 +92,11 @@ public class GameObject {
     Matrix4 localToWorld() {
         // TODO HW3
         // You need to calculate the model Matrix here.
+        // the inverse of worldToLocal
 
-        return Matrix4.Identity();
-
+        return Matrix4.Trans(transform.position).mult(Matrix4.RotY(transform.rotation.y))
+                .mult(Matrix4.RotX(transform.rotation.x)).mult(Matrix4.RotZ(transform.rotation.z))
+                .mult(Matrix4.Scale(transform.scale));
     }
 
     Matrix4 worldToLocal() {
