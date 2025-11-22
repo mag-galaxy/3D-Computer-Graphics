@@ -147,8 +147,18 @@ public float getDepth(float x, float y, Vector3[] vertex) {
     // TODO HW3
     // You need to calculate the depth (z) in the triangle (vertex) based on the
     // positions x and y. and return the z value;
-
-    return 0.0;
+    
+    // vertex defines a face, need 3 vertices for finding plane equation
+    Vector3 a = vertex[0];
+    Vector3 b = vertex[1];
+    Vector3 c = vertex[2];
+    Vector3 ab = new Vector3(b.x - a.x, b.y - a.y, b.z - a.z);
+    Vector3 ac = new Vector3(c.x - a.x, c.y - a.y, c.z - a.z);
+    
+    Vector3 n = Vector3.cross(ab, ac);
+    // plane equation E = n.x * (x -a.x) + n.y * (y - a.y) + n.z * (z - a.z) = 0
+    float z = (-n.x * (x -a.x) - n.y * (y - a.y)) / n.z + a.z;
+    return z;
 }
 
 float[] barycentric(Vector3 P, Vector4[] verts) {

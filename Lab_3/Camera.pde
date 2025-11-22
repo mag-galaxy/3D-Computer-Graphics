@@ -46,14 +46,15 @@ public class Camera {
         // the near plane and the far plane of the camera.
         // Where GH_FOV has been declared as a global variable.
         // Finally, pass the result into projection matrix.
-
+        float aspect_ratio = w/h;
+        
         projection.makeIdentity();
-        projection.m[5] = float(wid)/float(hei);
-        projection.m[10] = 1;
-        projection.m[11] = 1;
-        projection.m[14] = tan(GH_FOV);
+        projection.m[0] = 1 / (tan(GH_FOV/2) * aspect_ratio * 2);
+        projection.m[5] = 1 / (tan(GH_FOV/2) * 2);
+        projection.m[10] = (far+near) / (far-near);
+        projection.m[11] = (-2*far*near) / (far-near);
+        projection.m[14] = -1;
         projection.m[15] = 0;
-
     }
 
     void setPositionOrientation(Vector3 pos, float rotX, float rotY) {
