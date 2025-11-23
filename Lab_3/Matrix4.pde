@@ -50,8 +50,8 @@ static public class Matrix4{
   void makeRotZ(float a) {
     // TODO HW2
     // You need to implement the rotation of z-axis matrix here.
-    m[0]  = cos(a); m[1]  = -sin(a); m[2]  = 0.0f; m[3]  = 0.0f;
-    m[4]  = sin(a); m[5]  = cos(a); m[6]  = 0.0f; m[7]  = 0.0f;
+    m[0]  = cos(a); m[1]  = sin(a); m[2]  = 0.0f; m[3]  = 0.0f;
+    m[4]  = -sin(a); m[5]  = cos(a); m[6]  = 0.0f; m[7]  = 0.0f;
     m[8]  = 0.0f; m[9]  = 0.0f; m[10] = 1.0f; m[11] = 0.0f;
     m[12] = 0.0f; m[13] = 0.0f; m[14] = 0.0f; m[15] = 1.0f;
   }

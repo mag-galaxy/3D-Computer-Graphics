@@ -49,11 +49,18 @@ public class Camera {
         float aspect_ratio = w/h;
         
         projection.makeIdentity();
-        projection.m[0] = 1 / (tan(GH_FOV/2) * aspect_ratio * 2);
-        projection.m[5] = 1 / (tan(GH_FOV/2) * 2);
-        projection.m[10] = (far+near) / (far-near);
-        projection.m[11] = (-2*far*near) / (far-near);
-        projection.m[14] = -1;
+        //projection.m[0] = 1 / (tan(GH_FOV/2) * aspect_ratio * 2);
+        //projection.m[5] = 1 / (tan(GH_FOV/2) * 2);
+        //projection.m[10] = (-far) / (near-far);
+        //projection.m[11] = (far*near) / (near-far);
+        //projection.m[14] = -1;
+        //projection.m[15] = 0;
+        
+        projection.m[0] = 1;
+        projection.m[5] = aspect_ratio;
+        projection.m[10] = (-far) * tan(GH_FOV) / (near-far);
+        projection.m[11] = (far*near) * tan(GH_FOV) / (near-far);
+        projection.m[14] = tan(GH_FOV);
         projection.m[15] = 0;
     }
 
@@ -69,20 +76,16 @@ public class Camera {
         // Finally, pass the result into worldView matrix.
         
         Vector3 topVector = new Vector3(0,1,0);
-        Vector3 eyeVector = new Vector3(lookat.x-pos.x, lookat.y - pos.y, lookat.z - pos.z);
-        Vector3 v1 = Vector3.cross(topVector, eyeVector);
-        Vector3 v3 = new Vector3(eyeVector.x, eyeVector.y, eyeVector.z);
+        Vector3 viewVector = new Vector3(lookat.x-pos.x, lookat.y - pos.y, lookat.z - pos.z);
+        Vector3 v1 = Vector3.cross(topVector, viewVector);
+        Vector3 v3 = new Vector3(viewVector.x, viewVector.y, viewVector.z);
         Vector3 v2 = Vector3.cross(v3, v1);
+        Matrix4 GRM = new Matrix4(v1.unit_vector(), v2.unit_vector(), v3.unit_vector());
+        GRM.m[15] = 1.0;
+        Matrix4 mirror = new Matrix4();
+        mirror.makeIdentity();
+        mirror.m[0] = -1;
         
-        worldView.makeIdentity();
-        worldView.m[0] = v1.x;
-        worldView.m[1] = v1.y;
-        worldView.m[2] = v1.z;
-        worldView.m[4] = v2.x;
-        worldView.m[5] = v2.y;
-        worldView.m[6] = v2.z;
-        worldView.m[8] = v3.x;
-        worldView.m[9] = v3.y;
-        worldView.m[10] = v3.z;
+        worldView = mirror.mult(GRM).mult(Matrix4.Trans(pos.mult(-1)));
     }
 }
