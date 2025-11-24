@@ -48,19 +48,11 @@ public class Camera {
         // Finally, pass the result into projection matrix.
         float aspect_ratio = w/h;
         
-        projection.makeIdentity();
-        //projection.m[0] = 1 / (tan(GH_FOV/2) * aspect_ratio * 2);
-        //projection.m[5] = 1 / (tan(GH_FOV/2) * 2);
-        //projection.m[10] = (-far) / (near-far);
-        //projection.m[11] = (far*near) / (near-far);
-        //projection.m[14] = -1;
-        //projection.m[15] = 0;
-        
-        projection.m[0] = 1;
-        projection.m[5] = aspect_ratio;
-        projection.m[10] = (-far) * tan(GH_FOV) / (near-far);
-        projection.m[11] = (far*near) * tan(GH_FOV) / (near-far);
-        projection.m[14] = tan(GH_FOV);
+        projection.m[0] = 1 / (tan(GH_FOV/2) * aspect_ratio);
+        projection.m[5] = 1 / tan(GH_FOV/2);
+        projection.m[10] = far / (far-near);
+        projection.m[11] = (far*near) / (near-far);
+        projection.m[14] =  1;
         projection.m[15] = 0;
     }
 

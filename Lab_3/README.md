@@ -4,7 +4,7 @@ follow instruction: https://hackmd.io/@lab31718/CGlab3
 ## functions completed
 - [X] 3 transformation matrices
 - [X] depth buffer
-- [ ] camera control
+- [X] camera control
 - [ ] backculling
 
 ## how to implement?
@@ -32,10 +32,11 @@ first, calculate the plane equation of given vertices (only 3 vertices are neede
 select 3 points (vertices) form `vertex`: `a, b, c`. $ \vec{n} = (\vec{ab} \times \vec{ac}) $ and $ E = n_x * (x -a_x) + n_y * (y - a_y) + n_z * (z - a_z) = 0 $
 
 ---
-### camera control
+### camera control `HW3:: keyPressed()`
 reference:
-* https://processing.org/reference/keyCode.html
-using keyboard or mouse to move the camera
+* https://processing.org/reference/keyPressed_.html
+
+use `UP, DOWN, LEFT, RIGHT` to control the camera
 
 ---
 ### backculling
@@ -43,4 +44,4 @@ using keyboard or mouse to move the camera
 ## YouTube DEMO Video
 
 ## used LLM as assistance
-ask Gemini 
+after implementing tasks by myself, if it did not work and I can not find solutions on the Internet either, I would ask `Gemini` 

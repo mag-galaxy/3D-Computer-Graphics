@@ -158,8 +158,7 @@ public float getDepth(float x, float y, Vector3[] vertex) {
     Vector3 n = Vector3.cross(ab, ac);
     // plane equation E = n.x * (x -a.x) + n.y * (y - a.y) + n.z * (z - a.z) = 0
     float z = (-n.x * (x -a.x) - n.y * (y - a.y)) / n.z + a.z;
-    //return z;
-    return 0.0;
+    return z;
 }
 
 float[] barycentric(Vector3 P, Vector4[] verts) {

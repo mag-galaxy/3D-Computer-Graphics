@@ -41,7 +41,6 @@ void draw() {
     background(255);
 
     engine.run();
-    cameraControl();
 }
 
 String selectFile() {
@@ -59,7 +58,7 @@ String selectFile() {
     return "";
 }
 
-void cameraControl(){
+void keyPressed(){
     // You can write your own camera control function here.
     // Use setPositionOrientation(Vector3 position,Vector3 lookat) to modify the ViewMatrix.
     // Hint : Use keyboard event and mouse click event to change the position of the camera.       
@@ -67,19 +66,17 @@ void cameraControl(){
     if(key == CODED){
         if(keyCode == UP){
             cam_position.y -= 1;
-            main_camera.setPositionOrientation(cam_position, lookat);
         }
         else if(keyCode == DOWN){
             cam_position.y += 1;
-            main_camera.setPositionOrientation(cam_position, lookat);
         }
         else if(keyCode == LEFT){
             cam_position.x -= 1;
-            main_camera.setPositionOrientation(cam_position, lookat);
         }
         else if(keyCode == RIGHT){
             cam_position.x += 1;
-            main_camera.setPositionOrientation(cam_position, lookat);
         }
     }
+    main_camera.setPositionOrientation(cam_position, lookat);
+    redraw();
 }
