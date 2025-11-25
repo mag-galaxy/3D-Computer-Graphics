@@ -78,10 +78,18 @@ public class GameObject {
                 img_pos[j] = new Vector3(map(img_pos[j].x, -1, 1, renderer_size.x, renderer_size.z),
                         map(img_pos[j].y, -1, 1, renderer_size.y, renderer_size.w), img_pos[j].z);
             }
-
-            CGLine(img_pos[0].x, img_pos[0].y, img_pos[1].x, img_pos[1].y);
-            CGLine(img_pos[1].x, img_pos[1].y, img_pos[2].x, img_pos[2].y);
-            CGLine(img_pos[2].x, img_pos[2].y, img_pos[0].x, img_pos[0].y);
+            
+            Vector3 A = new Vector3(img_pos[1].x -img_pos[0].x, img_pos[1].y -img_pos[0].y, img_pos[1].z -img_pos[0].z);
+            Vector3 B = new Vector3(img_pos[2].x -img_pos[0].x, img_pos[2].y -img_pos[0].y, img_pos[2].z -img_pos[0].z);
+            Vector3 N = Vector3.cross(A, B);
+            
+            Vector3 viewVector = new Vector3(lookat.x-cam_position.x, lookat.y - cam_position.y, lookat.z - cam_position.z);
+            
+            if(Vector3.dot(N, viewVector) > 0.0){
+              CGLine(img_pos[0].x, img_pos[0].y, img_pos[1].x, img_pos[1].y);
+              CGLine(img_pos[1].x, img_pos[1].y, img_pos[2].x, img_pos[2].y);
+              CGLine(img_pos[2].x, img_pos[2].y, img_pos[0].x, img_pos[0].y);
+            }
         }
     }
 
