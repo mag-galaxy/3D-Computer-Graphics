@@ -51,8 +51,9 @@ use `Q, E, W, S, A, D` to control the camera horizontally or vertically, coordin
 ### backculling `GameObject::debugDraw()`
 reference:
 * https://learnopengl.com/Advanced-OpenGL/Face-culling
+* https://www.tutorialspoint.com/computer_graphics/computer_graphics_back_face_culling.htm
 
-find normal vectors of triangles of the mesh, then calculate $ \vec{norm} \cdot \vec{view} $ . if it is greater than `0`, which means the angle between normal vector and view vector (from face to camera) is smaller than `90°`, then the triangle is a front face. draw lines. otherwise, it is a back face. do not draw lines.
+find normal vectors of triangles of the mesh, then calculate $ \vec{norm} \cdot \vec{eye} $ . if it is greater than `0`, which means the angle between normal vector and eye vector (from face to camera) is smaller than `90°`, then the triangle is a front face. draw lines. otherwise, it is a back face. do not draw lines.
 
 ## YouTube DEMO Video
 

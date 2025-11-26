@@ -83,9 +83,9 @@ public class GameObject {
             Vector3 B = new Vector3(img_pos[2].x -img_pos[0].x, img_pos[2].y -img_pos[0].y, img_pos[2].z -img_pos[0].z);
             Vector3 N = Vector3.cross(A, B);
             
-            Vector3 viewVector = new Vector3(img_pos[0].x - cam_position.x, img_pos[0].y - cam_position.y, img_pos[0].z - cam_position.z);
+            Vector3 eyeVector = new Vector3(img_pos[0].x - cam_position.x, img_pos[0].y - cam_position.y, img_pos[0].z - cam_position.z);
             
-            if(Vector3.dot(N, viewVector) > 0.0){
+            if(Vector3.dot(N, eyeVector) > 0.0){
               CGLine(img_pos[0].x, img_pos[0].y, img_pos[1].x, img_pos[1].y);
               CGLine(img_pos[1].x, img_pos[1].y, img_pos[2].x, img_pos[2].y);
               CGLine(img_pos[2].x, img_pos[2].y, img_pos[0].x, img_pos[0].y);
