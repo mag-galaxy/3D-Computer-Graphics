@@ -5,7 +5,7 @@ follow instruction: https://hackmd.io/@lab31718/CGlab3
 - [X] 3 transformation matrices
 - [X] depth buffer
 - [X] camera control
-- [ ] backculling
+- [X] backculling
 
 ## how to implement?
 ### 3 transformation matrices
@@ -49,7 +49,10 @@ use `Q, E, W, S, A, D` to control the camera horizontally or vertically, coordin
 
 ---
 ### backculling `GameObject::debugDraw()`
-find normal vectors of triangles of the mesh, then calculate $ \vec{norm} \cdot \vec{view} $ . if it is greater than `0`, which means the angle between normal vector and view vector is smaller than `90°`, then the triangle is a front face. draw lines. otherwise, it is a back face. do not draw lines.
+reference:
+* https://learnopengl.com/Advanced-OpenGL/Face-culling
+
+find normal vectors of triangles of the mesh, then calculate $ \vec{norm} \cdot \vec{view} $ . if it is greater than `0`, which means the angle between normal vector and view vector (from face to camera) is smaller than `90°`, then the triangle is a front face. draw lines. otherwise, it is a back face. do not draw lines.
 
 ## YouTube DEMO Video
 
