@@ -56,6 +56,7 @@ reference:
 find normal vectors of triangles of the mesh, then calculate $ \vec{norm} \cdot \vec{eye} $ . if it is greater than `0`, which means the angle between normal vector and eye vector (from face to camera) is smaller than `90°`, then the triangle is a front face. draw lines. otherwise, it is a back face. do not draw lines.
 
 ## YouTube DEMO Video
+link: <https://youtu.be/NE1tb68EwCg>
 
 ## used LLM as assistance
 after implementing tasks by myself, if it did not work and I could not find solutions on the Internet either, I would explain the problem and ask `Gemini` for help
