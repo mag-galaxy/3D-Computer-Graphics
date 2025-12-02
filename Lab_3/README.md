@@ -59,4 +59,4 @@ find normal vectors of triangles of the mesh, then calculate $ \vec{norm} \cdot 
 link: <https://youtu.be/NE1tb68EwCg>
 
 ## used LLM as assistance
-after implementing tasks by myself, if it did not work and I could not find solutions on the Internet either, I would explain the problem and ask `Gemini` for help
+after implementing tasks by myself, if it did not work and I could not find solutions by myself nor on the Internet either, I would explain the problem and ask `Gemini` for help
