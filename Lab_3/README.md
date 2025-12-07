@@ -13,9 +13,11 @@ follow instruction: https://hackmd.io/@lab31718/CGlab3
 inverse of `worldToLocal()`, the Model Matrix is defined as ![modelmatrix](data/modelmatrix.png)
 
 **Camera Transformation (View Matrix)** `Camera::void setPositionOrientation(Vector3 pos, Vector3 lookat)`
-`pos` is the position of eyes, `lookat` is the point the eye is looking at. $ \vec{view} = (lookat_x - pos_x, lookat_y - pos_y, lookat_z - pos_z) , \vec{top} = (0, 1, 0) $
+`pos` is the position of eyes, `lookat` is the point the eye is looking at. <img width="502" height="26" alt="image" src="https://github.com/user-attachments/assets/7d6a18bd-95e2-4194-9f0f-25f8b8fa6c6f" />
 
-$ \vec{v_1}=(\vec{top} \times \vec{view}), \vec{v_2}=(\vec{v_3} \times \vec{v_1}), \vec{v_3}=\vec{view} $ and general rotation matrix is defined as ![alt text](data/GRM.png)
+
+<img width="317" height="16" alt="image" src="https://github.com/user-attachments/assets/5b389231-1711-4fb0-aba8-cbb1bbfabde2" />
+ and general rotation matrix is defined as ![alt text](data/GRM.png)
 
 the View Matrix is defined as $ mirror_x * GRM * Translation(-pos) $
 
@@ -29,7 +31,9 @@ the Projection Matrix is defined as ![alt text](data/perspective.png)
 ### depth buffer `util::getDepth(float x, float y, Vector3[] vertex)`
 first, calculate the plane equation of given vertices (only 3 vertices are needed). then plug in the given `(x,y)`, and we will get the corrosponding `z`.
 
-select 3 points (vertices) form `vertex`: `a, b, c`. $ \vec{n} = (\vec{ab} \times \vec{ac}) $ and $ E = n_x * (x -a_x) + n_y * (y - a_y) + n_z * (z - a_z) = 0 $
+select 3 points (vertices) form `vertex`: `a, b, c`. <img width="111" height="27" alt="image" src="https://github.com/user-attachments/assets/f4e8a1ca-ff25-433e-9c87-83744b8a678e" />
+ and <img width="381" height="22" alt="image" src="https://github.com/user-attachments/assets/2da5110b-461c-4cd6-968b-901633bdf183" />
+
 
 ---
 ### camera control `HW3::keyPressed()`
