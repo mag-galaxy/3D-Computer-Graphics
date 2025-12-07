@@ -45,7 +45,7 @@ first, calculate the plane equation of given vertices (only 3 vertices are neede
 
 select 3 points (vertices) form `vertex`: `a, b, c`. 
 
-<img width="111" height="27" alt="image" src="https://github.com/user-attachments/assets/f4e8a1ca-ff25-433e-9c87-83744b8a678e" />
+<img width="111" height="27" alt="image" src="https://github.com/user-attachments/assets/f4e8a1ca-ff25-433e-9c87-83744b8a678e" />,
 
 
 <img width="381" height="22" alt="image" src="https://github.com/user-attachments/assets/2da5110b-461c-4cd6-968b-901633bdf183" />
