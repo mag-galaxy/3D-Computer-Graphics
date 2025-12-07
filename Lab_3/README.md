@@ -14,11 +14,15 @@ inverse of `worldToLocal()`, the Model Matrix is defined as <img width="476" hei
 
 
 **Camera Transformation (View Matrix)** `Camera::void setPositionOrientation(Vector3 pos, Vector3 lookat)`
-`pos` is the position of eyes, `lookat` is the point the eye is looking at. <img width="502" height="26" alt="image" src="https://github.com/user-attachments/assets/7d6a18bd-95e2-4194-9f0f-25f8b8fa6c6f" />
+`pos` is the position of eyes, `lookat` is the point the eye is looking at. 
 
+<img width="502" height="26" alt="image" src="https://github.com/user-attachments/assets/7d6a18bd-95e2-4194-9f0f-25f8b8fa6c6f" />
 
 <img width="317" height="16" alt="image" src="https://github.com/user-attachments/assets/5b389231-1711-4fb0-aba8-cbb1bbfabde2" />
- and general rotation matrix is defined as <img width="230" height="93" alt="image" src="https://github.com/user-attachments/assets/834b9ca8-d986-4677-baa0-b12e7a98139a" />
+ 
+ and general rotation matrix is defined as 
+ 
+ <img width="230" height="93" alt="image" src="https://github.com/user-attachments/assets/834b9ca8-d986-4677-baa0-b12e7a98139a" />
 
 
 the View Matrix is defined as $ mirror_x * GRM * Translation(-pos) $
@@ -27,7 +31,9 @@ the View Matrix is defined as $ mirror_x * GRM * Translation(-pos) $
 reference:
 * https://www.youtube.com/watch?v=U0_ONQQ5ZNM
 
-the Projection Matrix is defined as <img width="748" height="83" alt="image" src="https://github.com/user-attachments/assets/ac55c116-74ed-4ba7-b329-2298c61b6c25" />
+the Projection Matrix is defined as 
+
+<img width="748" height="83" alt="image" src="https://github.com/user-attachments/assets/ac55c116-74ed-4ba7-b329-2298c61b6c25" />
 
 
 ---
