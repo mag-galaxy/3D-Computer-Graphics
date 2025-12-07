@@ -19,7 +19,7 @@ inverse of `worldToLocal()`, the Model Matrix is defined as <img width="476" hei
 <img width="502" height="26" alt="image" src="https://github.com/user-attachments/assets/7d6a18bd-95e2-4194-9f0f-25f8b8fa6c6f" />
 
 
-<img width="317" height="16" alt="image" src="https://github.com/user-attachments/assets/5b389231-1711-4fb0-aba8-cbb1bbfabde2" />
+<img width="312" height="19" alt="image" src="https://github.com/user-attachments/assets/7045bd8e-2e6a-4315-8f63-827d567291de" />
 
  
  and general rotation matrix is defined as 
