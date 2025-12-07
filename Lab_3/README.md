@@ -18,14 +18,17 @@ inverse of `worldToLocal()`, the Model Matrix is defined as <img width="476" hei
 
 <img width="502" height="26" alt="image" src="https://github.com/user-attachments/assets/7d6a18bd-95e2-4194-9f0f-25f8b8fa6c6f" />
 
+
 <img width="317" height="16" alt="image" src="https://github.com/user-attachments/assets/5b389231-1711-4fb0-aba8-cbb1bbfabde2" />
+
  
  and general rotation matrix is defined as 
  
  <img width="230" height="93" alt="image" src="https://github.com/user-attachments/assets/834b9ca8-d986-4677-baa0-b12e7a98139a" />
 
 
-the View Matrix is defined as $ mirror_x * GRM * Translation(-pos) $
+the View Matrix is defined as <img width="282" height="24" alt="image" src="https://github.com/user-attachments/assets/5d2e5b29-9072-4f8c-a3d4-be7ffa62ee86" />
+
 
 **Perspective Rendering (Projection Matrix)** `Camera::setSize(int w, int h, float n, float f)`
 reference:
@@ -40,8 +43,12 @@ the Projection Matrix is defined as
 ### depth buffer `util::getDepth(float x, float y, Vector3[] vertex)`
 first, calculate the plane equation of given vertices (only 3 vertices are needed). then plug in the given `(x,y)`, and we will get the corrosponding `z`.
 
-select 3 points (vertices) form `vertex`: `a, b, c`. <img width="111" height="27" alt="image" src="https://github.com/user-attachments/assets/f4e8a1ca-ff25-433e-9c87-83744b8a678e" />
- and <img width="381" height="22" alt="image" src="https://github.com/user-attachments/assets/2da5110b-461c-4cd6-968b-901633bdf183" />
+select 3 points (vertices) form `vertex`: `a, b, c`. 
+
+<img width="111" height="27" alt="image" src="https://github.com/user-attachments/assets/f4e8a1ca-ff25-433e-9c87-83744b8a678e" />
+
+
+<img width="381" height="22" alt="image" src="https://github.com/user-attachments/assets/2da5110b-461c-4cd6-968b-901633bdf183" />
 
 
 ---
