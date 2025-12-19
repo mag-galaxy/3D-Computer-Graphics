@@ -176,9 +176,26 @@ float[] barycentric(Vector3 P, Vector4[] verts) {
     // the barycentric coordinate system.
     // Please notice that you should use Perspective-Correct Interpolation otherwise
     // you will get wrong answer.
+    
+    Vector3 V0 = Vector3.sub(C, A);
+    Vector3 V1 = Vector3.sub(B, A);
+    Vector3 V2 = Vector3.sub(P, A);
+    
+    float dot00 = Vector3.dot(V0, V0);
+    float dot01 = Vector3.dot(V0, V1);
+    float dot02 = Vector3.dot(V0, V2);
+    float dot11 = Vector3.dot(V1, V1);
+    float dot12 = Vector3.dot(V1, V2);
+    
+    float u = (dot11*dot02 - dot01*dot12) / (dot00*dot11 - dot01*dot01);
+    float v = (dot00*dot12 - dot01*dot02) / (dot00*dot11 - dot01*dot01);
+    
+    // P = (1-u-v) * A + v * B + u * C
+    float lamdaA = 1-u-v;
+    float lamdaB = v;
+    float lamdaC = u;
 
-    float[] result = { 0.0, 0.0, 0.0 };
-
+    float[] result = { lamdaA, lamdaB, lamdaC };
     return result;
 }
 
