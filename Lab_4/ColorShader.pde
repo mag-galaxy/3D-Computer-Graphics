@@ -27,7 +27,7 @@ public class PhongFragmentShader extends FragmentShader {
         Vector3 position = (Vector3) varying[0];
         Vector3 w_position = (Vector3) varying[1]; // world position
         Vector3 w_normal = (Vector3) varying[2]; // world normal
-        Vector3 albedo = (Vector3) varying[3]; // reflection rate
+        Vector3 albedo = (Vector3) varying[3]; // color of the object (reflection rate)
         Vector3 kdksm = (Vector3) varying[4]; // Kd, Ks, m
         Vector3 Ka = (Vector3) varying[5];
         Light light = basic_light;
@@ -41,19 +41,21 @@ public class PhongFragmentShader extends FragmentShader {
         float Ks = kdksm.y;
         float m = kdksm.z;
         
+        Vector3 f_color = light.light_color.product(albedo); // consider both object color and light color
+        
         Vector3 ambient = Ka.mult(light.intensity); // Ia (scalar) * Ka (Vector3)
         
         Vector3 N = w_normal.unit_vector();
         Vector3 L = light.transform.position.sub(w_position).unit_vector();
 
         float NL = Vector3.dot(N, L); // N dot L (scalar)
-        Vector3 diffuse = light.light_color.mult(light.intensity).mult(Kd).mult(max(0.0, NL)); // Ip (scalar) * Kd (scalar) * (N dot L) (scalar) 
+        Vector3 diffuse = f_color.mult(light.intensity).mult(Kd).mult(max(0.0, NL)); // Ip (scalar) * Kd (scalar) * (N dot L) (scalar) 
         
         Vector3 L_prim = N.mult(NL); // (N dot L) (scalar) * N (Vector3)
         Vector3 V = cam.transform.position.sub(w_position).unit_vector();
         Vector3 R = (L_prim.mult(2)).sub(L).unit_vector(); // 2 * L_prime (Vector3) - L (Vector3)
         float RV = Vector3.dot(R,V); // R dot V (scalar)
-        Vector3 specular = albedo.mult(light.intensity).mult(Ks).mult(pow(max(0.0, RV), m)); // Ip (scalar) * Ks (scalar) * (R dot V)^m (scalar)
+        Vector3 specular = light.light_color.mult(light.intensity).mult(Ks).mult(pow(max(0.0, RV), m)); // Ip (scalar) * Ks (scalar) * (R dot V)^m (scalar)
         
         Vector3 illumination = ambient.add(diffuse).add(specular);
 
@@ -125,19 +127,21 @@ public class FlatFragmentShader extends FragmentShader {
         float Ks = kdksm.y;
         float m = kdksm.z;
         
+        Vector3 f_color = light.light_color.product(albedo);
+        
         Vector3 ambient = Ka.mult(light.intensity); // Ia (scalar) * Ka (Vector3)
         
         Vector3 N = w_normal.unit_vector();
         Vector3 L = light.transform.position.sub(w_position).unit_vector();
 
         float NL = Vector3.dot(N, L); // N dot L (scalar)
-        Vector3 diffuse = light.light_color.mult(light.intensity).mult(Kd).mult(max(0.0, NL)); // Ip (scalar) * Kd (scalar) * (N dot L) (scalar) 
+        Vector3 diffuse = f_color.mult(light.intensity).mult(Kd).mult(max(0.0, NL)); // Ip (scalar) * Kd (scalar) * (N dot L) (scalar) 
         
         Vector3 L_prim = N.mult(NL); // (N dot L) (scalar) * N (Vector3)
         Vector3 V = cam.transform.position.sub(w_position).unit_vector();
         Vector3 R = (L_prim.mult(2)).sub(L).unit_vector(); // 2 * L_prime (Vector3) - L (Vector3)
         float RV = Vector3.dot(R,V); // R dot V (scalar)
-        Vector3 specular = albedo.mult(light.intensity).mult(Ks).mult(pow(max(0.0, RV), m)); // Ip (scalar) * Ks (scalar) * (R dot V)^m (scalar)
+        Vector3 specular = light.light_color.mult(light.intensity).mult(Ks).mult(pow(max(0.0, RV), m)); // Ip (scalar) * Ks (scalar) * (R dot V)^m (scalar)
         
         Vector3 illumination = ambient.add(diffuse).add(specular);
 
@@ -173,6 +177,8 @@ public class GouraudVertexShader extends VertexShader {
         // Note: Here the first variable must return the position of the vertex.
         // Subsequent variables will be interpolated and passed to the fragment shader.
         // The return value must be a Vector4.
+        
+        Vector3 f_color = light.light_color.product(albedo);
 
         for (int i = 0; i < gl_Position.length; i++) {
             gl_Position[i] = MVP.mult(aVertexPosition[i].getVector4(1.0));
@@ -183,13 +189,13 @@ public class GouraudVertexShader extends VertexShader {
             Vector3 N = M.mult(aVertexNormal[i].getVector4(0.0)).xyz();
             Vector3 L = light.transform.position.sub(w_position).unit_vector();
             float NL = Vector3.dot(N, L); // N dot L (scalar)
-            Vector3 diffuse = light.light_color.mult(light.intensity).mult(Kd).mult(max(0.0, NL)); // Ip (scalar) * Kd (scalar) * (N dot L) (scalar) 
+            Vector3 diffuse = f_color.mult(light.intensity).mult(Kd).mult(max(0.0, NL)); // Ip (scalar) * Kd (scalar) * (N dot L) (scalar) 
             
             Vector3 L_prim = N.mult(NL); // (N dot L) (scalar) * N (Vector3)
             Vector3 R = (L_prim.mult(2)).sub(L).unit_vector(); // 2 * L_prime (Vector3) - L (Vector3)
             Vector3 V = cam.transform.position.sub(w_position).unit_vector();
             float RV = Vector3.dot(R,V); // R dot V (scalar)
-            Vector3 specular = albedo.mult(light.intensity).mult(Ks).mult(pow(max(0.0, RV), m)); // Ip (scalar) * Ks (scalar) * (R dot V)^m (scalar)
+            Vector3 specular = light.light_color.mult(light.intensity).mult(Ks).mult(pow(max(0.0, RV), m)); // Ip (scalar) * Ks (scalar) * (R dot V)^m (scalar)
             
             Vector3 illumination = ambient.add(diffuse).add(specular);
             v_color[i] = illumination.getVector4(1.0);
