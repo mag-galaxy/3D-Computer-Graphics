@@ -16,7 +16,7 @@ reference:
 
 barycentric coordinate of point `P` in triangle `ABC` is:
 
-$ P = {\lambda}_A A + {\lambda}_B B + {\lambda}_C C$
+$P = {\lambda}_A A + {\lambda}_B B + {\lambda}_C C$
 
 we can get 3 coefficient in the equation above by solving `u` and `v` in equation below:
 
