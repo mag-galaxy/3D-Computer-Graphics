@@ -20,11 +20,11 @@ $P = {\lambda}_A A + {\lambda}_B B + {\lambda}_C C$
 
 we can get 3 coefficient in the equation above by solving `u` and `v` in equation below:
 
-$ P - A = u * (B - A) + v * (C - A) $
+$P - A = u * (B - A) + v * (C - A) $
 
 then we have:
 
-$ P = (1 - u - v) * A + v * B + u * C $
+$P = (1 - u - v) * A + v * B + u * C $
 
 ---
 ### 3 shading
@@ -32,13 +32,13 @@ $ P = (1 - u - v) * A + v * B + u * C $
 
 lighting function is the same for 3 shading method (Phong lighting = ambient + diffuse + specular), but in different part of shader
 
-$ ambient = I_a * K_a $
+$ambient = I_a * K_a $
 
-$ diffuse = I_p * K_d * max(0, \vec N \cdot \vec L) $
+$diffuse = I_p * K_d * max(0, \vec N \cdot \vec L) $
 
-$ specular = I_p * K_s * (max(0, \vec R \cdot \vec V))^m $
+$specular = I_p * K_s * (max(0, \vec R \cdot \vec V))^m $
 
-$ lighting = ambient + diffuse + specular $
+$lighting = ambient + diffuse + specular $
 
 ---
 ### Phong shading
