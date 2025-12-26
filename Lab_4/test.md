@@ -8,8 +8,7 @@ follow instruction: https://hackmd.io/@lab31718/CGlab4
 - [X] Gouraud shading
 
 ## how to implement?
-### Barycentric Coordinates 
-`util::barycentric(Vector3 P, Vector4[] verts)`
+### Barycentric Coordinates `util::barycentric(Vector3 P, Vector4[] verts)`
 
 reference:
 * https://www.dowen.idv.tw/2016/09/12/%E9%87%8D%E5%BF%83%E5%BA%A7%E6%A8%99%E7%B3%BB%E7%B5%B1/
@@ -41,8 +40,7 @@ $specular = I_p * K_s * (max(0, \vec R \cdot \vec V))^m $
 $lighting = ambient + diffuse + specular $
 
 ---
-### Phong shading
-`Material::PhongMaterial`, `ColorShader::PhongVertexShader`, `ColorShader::PhongFragmentShader`
+### Phong shading `Material::PhongMaterial`, `ColorShader::PhongVertexShader`, `ColorShader::PhongFragmentShader`
 
 reference:
 * https://cg2010studio.com/2011/11/01/flat%E3%80%81gouraud%E3%80%81phong-shading%E7%9A%84%E5%B7%AE%E5%88%A5-comparison-flat-gouraud-phong-shading/
@@ -53,8 +51,7 @@ We pass `normal`, `position` and `modle matrix` from material to `VertexShader`,
 ![image](/Lab_4/data/phong.png)
 
 ---
-### Flat shading
-`Material::FlatMaterial`, `ColorShader::FlatVertexShader`, `ColorShader::FlatFragmentShader`
+### Flat shading `Material::FlatMaterial`, `ColorShader::FlatVertexShader`, `ColorShader::FlatFragmentShader`
 
 reference:
 * https://www.geeksforgeeks.org/computer-graphics/constant-intensity-shading-in-computer-graphics/
@@ -64,8 +61,7 @@ We pass `normal`, `position` and `modle matrix` from material to `VertexShader`,
 ![image](/Lab_4/data/flat.png)
 
 ---
-### Gouraud shading
-`Material::GouraudMaterial`, `ColorShader::GouraudVertexShader`, `ColorShader::GouraudFragmentShader`
+### Gouraud shading `Material::GouraudMaterial`, `ColorShader::GouraudVertexShader`, `ColorShader::GouraudFragmentShader`
 
 reference:
 * https://www.geeksforgeeks.org/computer-graphics/gouraud-shading-in-computer-graphics/
