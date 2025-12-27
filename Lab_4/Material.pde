@@ -135,7 +135,7 @@ public class TextureMaterial extends Material {
         Matrix4 MVP = main_camera.Matrix().mult(M);
         Vector3[] position = triangle.verts;
         Vector3[] normal = triangle.normal;
-        Vector3[] uv = triangle.uvs;  // coordinate of png file
+        Vector3[] uv = triangle.uvs;
         Vector4[][] r = shader.vertex.main(new Object[] { position, normal, uv }, new Object[] { MVP, M });
         return r;
     }

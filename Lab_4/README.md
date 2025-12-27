@@ -6,6 +6,7 @@ follow instruction: https://hackmd.io/@lab31718/CGlab4
 - [X] Phong shading
 - [X] Flat shading
 - [X] Gouraud shading
+- [X] Bonus: Texture Shader
 
 ## how to implement?
 ### Barycentric Coordinates 
@@ -13,6 +14,7 @@ follow instruction: https://hackmd.io/@lab31718/CGlab4
 
 reference:
 * https://www.dowen.idv.tw/2016/09/12/%E9%87%8D%E5%BF%83%E5%BA%A7%E6%A8%99%E7%B3%BB%E7%B5%B1/
+* https://blog.csdn.net/seizeF/article/details/92760068
 
 barycentric coordinate of point `P` in triangle `ABC` is:
 
@@ -25,6 +27,14 @@ $P - A = u * (B - A) + v * (C - A) $
 then we have:
 
 $P = (1 - u - v) * A + v * B + u * C $
+
+where $ (1 - u - v) = {\lambda}_A, v = {\lambda}_B, u = {\lambda}_C$
+
+now, we have barycentric coordinates of screen space, we need to consider perspective divide (w). then we have **perspective-correct interpolation** as below:
+
+$({\lambda}_A attribute_A/wA + {\lambda}_B attribute_B/wB + {\lambda}_C attribute_C/wC)/({\lambda}_A/wA + {\lambda}_B/wB + {\lambda}_C/wC) $
+
+![image](/Lab_4/data/checker.png)
 
 ---
 ### 3 shading
@@ -73,6 +83,20 @@ reference:
 We pass `normal`, `position` and `modle matrix` from material to `VertexShader`, compute its `world normal` and `world position`. Compute lighting (color) in `VertexShader`, then **do interpolation on lighting (color)**. In `FragmentShader`, directly return results of color interpolation.
 
 ![image](/Lab_4/data/gouraud.png)
+
+---
+### Bonus: Texture Shader
+`Material::TextureMaterial`, `ColorShader::TextureVertexShader`, `ColorShader::TextureFragmentShader`
+
+Inherit from `Material` and `Shader`.
+
+In `TextureMaterial`constructor, add `selectFile()` and `loadImage(path)` to load texture file. Also, passing `uv` of triangle to `VertexShader`, passing `texture` to `FragmentShader`.
+
+In `VertexShader`, return `uv` for latter interpolation. In `FragmentShader`, using interpolated `uv` to compute corresponding pixel coordinates `(tx, ty)` in `texture`. Noted that `pixels` are stored in one-dimensional array, thus we accessed them using index `ty * texture.width + tx`.
+
+![image](/Lab_4/data/block.png)
+![image](/Lab_4/data/glass.png)
+![image](/Lab_4/data/road.png)
 
 ## used LLM as assistance
 Asked `ChatGPT` about relation between classes `Material` and `Shader` at the begining, figuring out the structure with LLM.
