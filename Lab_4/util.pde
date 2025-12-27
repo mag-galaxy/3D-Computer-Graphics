@@ -194,8 +194,18 @@ float[] barycentric(Vector3 P, Vector4[] verts) {
     float lamdaA = 1-u-v;
     float lamdaB = v;
     float lamdaC = u;
+    
+    float alpha = lamdaA / AW.w;
+    float beta  = lamdaB / BW.w;
+    float gamma = lamdaC / CW.w;
+    
+    float sum = alpha + beta + gamma;
+    
+    alpha /= sum;
+    beta  /= sum;
+    gamma /= sum;
 
-    float[] result = { lamdaA, lamdaB, lamdaC };
+    float[] result = { alpha, beta, gamma };
     return result;
 }
 
