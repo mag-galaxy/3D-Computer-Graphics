@@ -237,6 +237,11 @@ public class Inspector {
                             materialButton.name = "PhongMaterial";
                             break;
                         case PM:
+                            gameObject.me = MaterialEnum.TM;
+                            gameObject.material = new TextureMaterial();
+                            materialButton.name = "TextureMaterial";
+                            break;
+                        case TM:
                             gameObject.me = MaterialEnum.DM;
                             gameObject.material = new DepthMaterial();
                             materialButton.name = "DepthMaterial";

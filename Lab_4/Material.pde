@@ -117,6 +117,35 @@ public class GouraudMaterial extends Material {
     }
 }
 
+public class TextureMaterial extends Material {
+    Vector3 Ka = new Vector3(0.3, 0.3, 0.3);
+    float Kd = 0.5;
+    float Ks = 0.5;
+    float m = 20;
+    PImage texture;
+
+    TextureMaterial() {
+        shader = new Shader(new TextureVertexShader(), new TextureFragmentShader());
+        String path = selectFile();
+        texture = loadImage(path);
+        texture.loadPixels();
+    }
+
+    Vector4[][] vertexShader(Triangle triangle, Matrix4 M) {
+        Matrix4 MVP = main_camera.Matrix().mult(M);
+        Vector3[] position = triangle.verts;
+        Vector3[] normal = triangle.normal;
+        Vector3[] uv = triangle.uvs;  // coordinate of png file
+        Vector4[][] r = shader.vertex.main(new Object[] { position, normal, uv }, new Object[] { MVP, M });
+        return r;
+    }
+
+    Vector4 fragmentShader(Vector3 position, Vector4[] varing) {
+        return shader.fragment
+                .main(new Object[] { position, varing[0].xyz(), varing[1].xyz(), varing[2].xyz(), albedo, new Vector3(Kd, Ks, m), Ka, texture });
+    }
+}
+
 public enum MaterialEnum {
-    DM, FM, GM, PM;
+    DM, FM, GM, PM, TM;
 }
