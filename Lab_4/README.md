@@ -94,6 +94,8 @@ In `TextureMaterial`constructor, add `selectFile()` and `loadImage(path)` to loa
 
 In `VertexShader`, return `uv` for latter interpolation. In `FragmentShader`, using interpolated `uv` to compute corresponding pixel coordinates `(tx, ty)` in `texture`. Noted that `pixels` are stored in one-dimensional array, thus we accessed them using index `ty * texture.width + tx`.
 
+Also, in `Renderer.pde`, add case `TM` in `materialButton`. The order is `Phong` -> `Texture` -> `Depth` -> `Flat` -> `Gouraud`.
+
 ![image](/Lab_4/data/block.png)
 ![image](/Lab_4/data/glass.png)
 ![image](/Lab_4/data/road.png)
