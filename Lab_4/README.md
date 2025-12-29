@@ -28,7 +28,7 @@ then we have:
 
 $P = (1 - u - v) * A + v * B + u * C $
 
-where $ (1 - u - v) = {\lambda}_A, v = {\lambda}_B, u = {\lambda}_C$
+where $(1 - u - v) = {\lambda}_A, v = {\lambda}_B, u = {\lambda}_C$
 
 now, we have barycentric coordinates of screen space, we need to consider perspective divide (w). then we have **perspective-correct interpolation** as below:
 
@@ -101,4 +101,4 @@ Also, in `Renderer.pde`, add case `TM` in `materialButton`. The order is `Phong`
 ![image](/Lab_4/data/road.png)
 
 ## used LLM as assistance
-Asked `ChatGPT` about relation between classes `Material` and `Shader` at the begining, figuring out the structure with LLM.
+First I readed codes of classes `Material`, `Shader`, `Mesh`, but I did not really understand them. Then, I asked `ChatGPT` about relation between three classes, figuring out the structure with LLM.
